@@ -17,10 +17,10 @@ script = ExtResource("1_2o4td")
 [node name="TurnCounter" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="TurnCounter"]
+[node name="TurnLabel" type="Label" parent="TurnCounter"]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "20"
+text = "20 turns left"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
