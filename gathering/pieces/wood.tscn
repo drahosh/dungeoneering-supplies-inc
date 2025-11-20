@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b21ii7l1ss4e6"]
+
+[ext_resource type="Script" uid="uid://d3m2xs160u6xl" path="res://addons/ninetailsrabbit.match3_board/src/pieces/piece.gd" id="1_ldueu"]
+[ext_resource type="Texture2D" uid="uid://dt85ds0ybmwl0" path="res://res/match/wood.PNG" id="2_ldueu"]
+
+[node name="Wood" type="Node2D"]
+script = ExtResource("1_ldueu")
+texture_scale = 1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ldueu")
+region_rect = Rect2(0, 0, 31.656, 29.94)

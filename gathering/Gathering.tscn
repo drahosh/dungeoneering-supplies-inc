@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://wmcnevgcc4g5"]
+
+[ext_resource type="Script" uid="uid://dwo4pswyxatia" path="res://gathering/gathering.gd" id="1_2o4td"]
+[ext_resource type="Script" uid="uid://dtcunct55fm3r" path="res://gathering/my_board.gd" id="2_2o4td"]
+[ext_resource type="Resource" uid="uid://wqciodcw8g5c" path="res://gathering/GatheringBoardConfiguration.tres" id="2_b4ein"]
+[ext_resource type="Script" uid="uid://l6w2l27wa40f" path="res://addons/ninetailsrabbit.match3_board/demo/demo_animator.gd" id="3_kdrly"]
+
+[node name="Gathering" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2o4td")
+
+[node name="TurnCounter" type="BoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Padding" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Matching" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Node2D" type="Node2D" parent="HBoxContainer/Matching"]
+
+[node name="Match3Board" type="Node2D" parent="HBoxContainer/Matching/Node2D" node_paths=PackedStringArray("animator")]
+script = ExtResource("2_2o4td")
+configuration = ExtResource("2_b4ein")
+animator = NodePath("Match3Animator")
+metadata/_custom_type_script = "uid://dks25ocxl5476"
+
+[node name="Match3Animator" type="Node" parent="HBoxContainer/Matching/Node2D/Match3Board" node_paths=PackedStringArray("board")]
+script = ExtResource("3_kdrly")
+board = NodePath("..")
+
+[node name="Padding2" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Abilities" type="HBoxContainer" parent="."]
+layout_mode = 2

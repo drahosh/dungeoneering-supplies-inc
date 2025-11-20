@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Match3PieceConfiguration" load_steps=5 format=3 uid="uid://c2ko6br1k35lc"]
+
+[ext_resource type="PackedScene" uid="uid://o05un1o07x3v" path="res://gathering/pieces/dirt.tscn" id="1_k03tv"]
+[ext_resource type="Script" uid="uid://d4hhq3xk71dh1" path="res://addons/ninetailsrabbit.match3_board/src/configurations/piece_configuration.gd" id="2_gqbjl"]
+[ext_resource type="Script" uid="uid://y1ng21yravws" path="res://addons/ninetailsrabbit.match3_board/src/configurations/piece_weight.gd" id="3_28v0x"]
+
+[sub_resource type="Resource" id="Resource_hsf80"]
+script = ExtResource("3_28v0x")
+value = 2.0
+metadata/_custom_type_script = "uid://y1ng21yravws"
+
+[resource]
+script = ExtResource("2_gqbjl")
+scene = ExtResource("1_k03tv")
+id = &"dirt"
+name = "dirt"
+weight = SubResource("Resource_hsf80")
+shape = &"dirt"

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://fguk30e6ybq1"]
+
+[ext_resource type="Script" uid="uid://d3m2xs160u6xl" path="res://addons/ninetailsrabbit.match3_board/src/pieces/piece.gd" id="1_hsjpe"]
+[ext_resource type="Texture2D" uid="uid://buy3w4aq64s1f" path="res://res/match/iron_ingot.png" id="2_kslbw"]
+
+[node name="IronPlate" type="Node2D"]
+script = ExtResource("1_hsjpe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_kslbw")

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Match3PieceConfiguration" load_steps=5 format=3 uid="uid://dpxg3xsfvgin3"]
+
+[ext_resource type="PackedScene" uid="uid://b21ii7l1ss4e6" path="res://gathering/pieces/wood.tscn" id="1_ln4x3"]
+[ext_resource type="Script" uid="uid://d4hhq3xk71dh1" path="res://addons/ninetailsrabbit.match3_board/src/configurations/piece_configuration.gd" id="2_1vfqc"]
+[ext_resource type="Script" uid="uid://y1ng21yravws" path="res://addons/ninetailsrabbit.match3_board/src/configurations/piece_weight.gd" id="3_2c00b"]
+
+[sub_resource type="Resource" id="Resource_hsf80"]
+script = ExtResource("3_2c00b")
+metadata/_custom_type_script = "uid://y1ng21yravws"
+
+[resource]
+script = ExtResource("2_1vfqc")
+scene = ExtResource("1_ln4x3")
+id = &"wood"
+name = "wood"
+weight = SubResource("Resource_hsf80")
+shape = &"wood"

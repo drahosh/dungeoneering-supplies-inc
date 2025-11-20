@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://o05un1o07x3v"]
+
+[ext_resource type="Script" uid="uid://d3m2xs160u6xl" path="res://addons/ninetailsrabbit.match3_board/src/pieces/piece.gd" id="1_xe0il"]
+[ext_resource type="Texture2D" uid="uid://bcn6khbrigvth" path="res://res/match/dirt.png" id="2_lrmhi"]
+
+[node name="Dirt" type="Node2D"]
+texture_filter = 2
+texture_repeat = 2
+script = ExtResource("1_xe0il")
+texture_scale = 3.2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 0.784314, 1)
+show_behind_parent = true
+texture = ExtResource("2_lrmhi")
+region_enabled = true
+region_rect = Rect2(0, 0, 32.6557, 31.083)
+region_filter_clip_enabled = true

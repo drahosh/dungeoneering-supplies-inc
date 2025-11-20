@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Match3BoardConfiguration" load_steps=10 format=3 uid="uid://wqciodcw8g5c"]
+
+[ext_resource type="Script" uid="uid://d4hhq3xk71dh1" path="res://addons/ninetailsrabbit.match3_board/src/configurations/piece_configuration.gd" id="1_mq5xk"]
+[ext_resource type="Script" uid="uid://3l3gq7rur1l4" path="res://addons/ninetailsrabbit.match3_board/src/configurations/match3_board_configuration.gd" id="2_58hof"]
+[ext_resource type="Resource" uid="uid://ct5ntd8btb2tt" path="res://gathering/pieces/dirt_configuration.tres" id="2_n06ws"]
+[ext_resource type="Script" uid="uid://cylvacvajy85d" path="res://addons/ninetailsrabbit.match3_board/src/configurations/sequence_consume_rule.gd" id="3_4h02p"]
+[ext_resource type="Resource" uid="uid://dxnytfstpo8t4" path="res://gathering/pieces/iron_ore_configuration.tres" id="3_mwy2o"]
+[ext_resource type="Resource" uid="uid://dsrko7i1abee4" path="res://gathering/pieces/grass_configuration.tres" id="4_qpf63"]
+[ext_resource type="Resource" uid="uid://dpxg3xsfvgin3" path="res://gathering/pieces/wood_configuration.tres" id="5_mkwxo"]
+[ext_resource type="Resource" uid="uid://c2ko6br1k35lc" path="res://gathering/pieces/stone_configuration.tres" id="6_dtw7h"]
+[ext_resource type="PackedScene" uid="uid://dyxg5roal1gmk" path="res://addons/ninetailsrabbit.match3_board/src/cells/grid_cell.tscn" id="8_qpf63"]
+
+[resource]
+script = ExtResource("2_58hof")
+available_pieces = Array[ExtResource("1_mq5xk")]([ExtResource("6_dtw7h"), ExtResource("5_mkwxo"), ExtResource("4_qpf63"), ExtResource("3_mwy2o"), ExtResource("2_n06ws")])
+grid_height = 9
+grid_cell_scene = ExtResource("8_qpf63")
+selection_mode = 1
+metadata/_custom_type_script = "uid://3l3gq7rur1l4"
