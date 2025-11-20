@@ -16,4 +16,5 @@ available_pieces = Array[ExtResource("1_mq5xk")]([ExtResource("6_dtw7h"), ExtRes
 grid_height = 9
 grid_cell_scene = ExtResource("8_qpf63")
 selection_mode = 1
+auto_start = false
 metadata/_custom_type_script = "uid://3l3gq7rur1l4"

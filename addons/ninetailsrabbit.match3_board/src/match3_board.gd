@@ -605,21 +605,21 @@ func on_child_entered_tree(child: Node) -> void:
 
 
 func on_drawed_cells(cells: Array[Match3GridCell]) -> void:
-		if not configuration.auto_start:
-			await draw_cells()
-
+		#if not configuration.auto_start:
+		#	await draw_cells()
+	pass
 
 func on_drawed_pieces(pieces: Array[Match3Piece]) -> void:
 	if configuration.allow_matches_on_start:
-		if not configuration.auto_start:
-			await draw_pieces()
+		#if not configuration.auto_start:
+		#	await draw_pieces()
 		
 		travel_to(BoardState.Consume)
 	else:
 		remove_matches_from_board()
 		
-		if not configuration.auto_start:
-			await draw_pieces()
+		#if not configuration.auto_start:
+		#	await draw_pieces()
 
 
 func on_board_locked() -> void:

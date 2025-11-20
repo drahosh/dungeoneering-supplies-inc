@@ -21,8 +21,8 @@ Materials="*res://progression/materials.gd"
 
 [display]
 
-window/size/viewport_width=576
-window/size/viewport_height=1024
+window/size/viewport_width=526
+window/size/viewport_height=924
 window/energy_saving/keep_screen_on=false
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
