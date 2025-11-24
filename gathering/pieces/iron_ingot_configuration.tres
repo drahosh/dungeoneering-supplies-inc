@@ -15,4 +15,4 @@ scene = ExtResource("1_7gv5e")
 id = &"iron_ingot"
 name = "iron_ingot"
 weight = SubResource("Resource_redas")
-shape = &"iron_plate"
+shape = &"iron_ingot"

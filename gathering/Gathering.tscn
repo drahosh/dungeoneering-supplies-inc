@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://wmcnevgcc4g5"]
+[gd_scene load_steps=7 format=3 uid="uid://wmcnevgcc4g5"]
 
 [ext_resource type="Script" uid="uid://dwo4pswyxatia" path="res://gathering/gathering.gd" id="1_2o4td"]
 [ext_resource type="Script" uid="uid://dtcunct55fm3r" path="res://gathering/my_board.gd" id="2_2o4td"]
 [ext_resource type="Theme" uid="uid://cq22p7ssoglja" path="res://main_menu/panel_theme.tres" id="2_34wmk"]
 [ext_resource type="Resource" uid="uid://wqciodcw8g5c" path="res://gathering/GatheringBoardConfiguration.tres" id="2_b4ein"]
+[ext_resource type="PackedScene" uid="uid://cmbbhf7ghuyoo" path="res://gathering/materials_bar.tscn" id="2_b63ps"]
 [ext_resource type="Script" uid="uid://l6w2l27wa40f" path="res://addons/ninetailsrabbit.match3_board/demo/demo_animator.gd" id="3_kdrly"]
 
 [node name="Gathering" type="VBoxContainer"]
@@ -26,7 +27,7 @@ text = "20 turns left"
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Padding" type="Control" parent="HBoxContainer"]
+[node name="MaterialsBar" parent="HBoxContainer" instance=ExtResource("2_b63ps")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2

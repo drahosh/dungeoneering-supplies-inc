@@ -13,7 +13,7 @@ func execute_ability(board: Match3Board, piece: Match3Piece) -> bool:
 	for cell: Match3GridCell in row:
 		var shape = cell.piece.shape
 		if shape in Enums.shape_to_material:
-			Materials.materials[Enums.shape_to_material[shape]] += 1
+			Materials.change_material_amount(Enums.shape_to_material[shape], 1)
 			cell.remove_piece(true)
 		elif shape in Enums.base_shape_to_refined_configuration:
 			cell.remove_piece(true)

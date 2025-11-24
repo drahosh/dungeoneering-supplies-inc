@@ -15,3 +15,7 @@ func get_abilities():
 		instantiate_ability_with_script("res://gathering/abilities/pick.gd"),
 		instantiate_ability_with_script("res://gathering/abilities/saw.gd"),
 	]
+
+
+func get_unlocked_materials():
+	return [Enums.material_types.IRON, Enums.material_types.WOOD]

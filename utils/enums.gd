@@ -1,7 +1,7 @@
-extends Object
 class_name Enums
+extends Object
 
-enum material_types  {
+enum material_types {
 	IRON,
 	WOOD,
 }
@@ -11,7 +11,10 @@ static var shape_to_material = {
 	"wood": material_types.WOOD,
 	"iron_ingot": material_types.IRON,
 }
-
 static var base_shape_to_refined_configuration = {
-	"iron_ore" : load("res://gathering/pieces/iron_ingot_configuration.tres"),
-}	
+	"iron_ore": load("res://gathering/pieces/iron_ingot_configuration.tres"),
+}
+static var material_to_sprite = {
+	material_types.IRON: preload("res://res/match/iron_ingot.png"),
+	material_types.WOOD: preload("res://res/match/wood.PNG"),
+}
