@@ -699,8 +699,9 @@ func on_piece_drag_ended(piece: Match3Piece) -> void:
 			if piece.reset_position_on_drag_release:
 				if animator:
 					await animator.run(Match3Animator.PieceDragEndedAnimation, [piece])
-			
-				piece.reset_drag_position()
+				if is_instance_valid(piece):
+					# with queue_free, piece can be freed during animation
+					piece.reset_drag_position()
 			
 		piece_drag_ended.emit(piece)
 		current_selected_piece = null

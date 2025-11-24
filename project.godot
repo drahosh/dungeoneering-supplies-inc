@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Materials="*res://progression/materials.gd"
+BuildingProgress="*res://progression/building_progress.gd"
 
 [display]
 

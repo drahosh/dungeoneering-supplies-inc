@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhrcmfhiiufhv"]
+
+[ext_resource type="Script" uid="uid://820i56adefad" path="res://gathering/abilities/ability.gd" id="1_a5g5o"]
+
+[node name="Ability" type="VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(60, 60)
+offset_right = 1.0
+offset_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_a5g5o")
+metadata/_edit_use_anchors_ = true
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+stretch_mode = 3
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="AspectRatioContainer"]
+layout_mode = 2
+value = 35.0
+fill_mode = 4
+tint_under = Color(0.21950102, 0.21950102, 0.21950102, 1)
+
+[node name="Button" type="Button" parent="AspectRatioContainer"]
+self_modulate = Color(3.3174834, 5.912981, 0, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 3
+disabled = true
+toggle_mode = true
+keep_pressed_outside = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "x/y"
+horizontal_alignment = 1
