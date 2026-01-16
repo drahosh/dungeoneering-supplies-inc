@@ -1,0 +1,27 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://clje3nsh2tdlp"]
+
+[sub_resource type="Shader" id="Shader_0hslv"]
+code = "shader_type canvas_item;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+    vec4 tex_color = texture(TEXTURE, UV);
+    // If the pixel is black, make it green. Keep the original alpha.
+    if (tex_color.rgb == vec3(0.0)) {
+        COLOR = vec4(0.0, 1.0, 0.0, tex_color.a);
+    } else {
+        COLOR = tex_color;
+    }
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the CanvasItem.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[resource]
+shader = SubResource("Shader_0hslv")

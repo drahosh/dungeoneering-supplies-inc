@@ -3,6 +3,7 @@ extends Object
 
 #region "materials"
 enum material_types {
+	GOLD,
 	IRON,
 	WOOD,
 }
@@ -18,6 +19,7 @@ static var base_shape_to_refined_configuration = {
 static var material_to_sprite = {
 	material_types.IRON: preload("res://res/match/iron_ingot.png"),
 	material_types.WOOD: preload("res://res/match/plank.PNG"),
+	material_types.GOLD: preload("res://res/other resources/TradingIcons_112_t.PNG"),
 }
 #endregion
 
@@ -58,6 +60,14 @@ enum ITEM_TYPE {
 	SHIELD,
 	AXE,
 	FOCUS,
+	BOW,
+	ARMOR,
+	TRINKET,
+	CONSUMABLE,
+}
+static var type_to_sprite = {
+	ITEM_TYPE.SWORD: preload("res://res/ui/types/blades.png"),
+	ITEM_TYPE.BOW: preload("res://res/ui/types/bow.png"),
 }
 
 #endregion

@@ -26,6 +26,7 @@ script = ExtResource("1_34se1")
 
 [node name="Shop" parent="." instance=ExtResource("2_3dbs0")]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Crafting" parent="." instance=ExtResource("1_gelx1")]
 visible = false
@@ -35,18 +36,22 @@ size_flags_vertical = 3
 [node name="Town" parent="." instance=ExtResource("4_wcgam")]
 visible = false
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Heroes" parent="." instance=ExtResource("5_cass8")]
 visible = false
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="AdventureSelect" parent="." instance=ExtResource("6_3vbii")]
 visible = false
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="GatherSelect" parent="." instance=ExtResource("7_gkete")]
 visible = false
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Padding" type="Control" parent="."]
 custom_minimum_size = Vector2(0, 8)

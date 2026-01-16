@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cmbbhf7ghuyoo"]
 
-[ext_resource type="Script" uid="uid://x4t4pgc4mayl" path="res://gathering/materials_bar.gd" id="1_ge2rr"]
+[ext_resource type="Script" uid="uid://x4t4pgc4mayl" path="res://utils/materials_bar.gd" id="1_ge2rr"]
 
 [node name="MaterialsBar" type="VBoxContainer"]
 anchors_preset = 15

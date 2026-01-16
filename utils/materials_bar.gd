@@ -1,6 +1,6 @@
 extends VBoxContainer
 
-var material_scene = preload("res://gathering/material_tile.tscn")
+var material_scene = preload("res://utils/material_tile.tscn")
 var material_to_tile = { }
 
 

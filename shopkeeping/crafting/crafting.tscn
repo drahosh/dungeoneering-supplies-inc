@@ -1,33 +1,64 @@
-[gd_scene load_steps=2 format=3 uid="uid://crx5pctwjuhwa"]
+[gd_scene load_steps=7 format=3 uid="uid://crx5pctwjuhwa"]
 
-[ext_resource type="Texture2D" uid="uid://bej26fl216rhr" path="res://res/ui/types/star.png" id="1_c2e3m"]
+[ext_resource type="PackedScene" uid="uid://cmbbhf7ghuyoo" path="res://gathering/materials_bar.tscn" id="1_c2e3m"]
+[ext_resource type="Theme" uid="uid://cq22p7ssoglja" path="res://main_menu/panel_theme.tres" id="1_o5xlp"]
+[ext_resource type="Script" uid="uid://bd64y6jrbt6tf" path="res://shopkeeping/crafting/crafting.gd" id="1_scy3v"]
+[ext_resource type="ButtonGroup" uid="uid://cjr81ka6lga0a" path="res://shopkeeping/crafting/filter_button_group.tres" id="4_4cbst"]
+[ext_resource type="Material" uid="uid://clje3nsh2tdlp" path="res://shopkeeping/crafting/button_selected_material.tres" id="4_rrk6g"]
 
-[node name="Crafting" type="VBoxContainer"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o5xlp"]
+load_path = "res://.godot/imported/star.png-dda90ba0f3e4933a05d8b7892805542f.ctex"
+
+[node name="Crafting" type="HBoxContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_scy3v")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="MaterialsBar" parent="." instance=ExtResource("1_c2e3m")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.2
+
+[node name="PanelContainer2" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_o5xlp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="RecipesShown" type="HFlowContainer" parent="ScrollContainer"]
+[node name="RecipesShown" type="HFlowContainer" parent="PanelContainer2/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ScrollContainer2" type="ScrollContainer" parent="."]
+[node name="ScrollContainer2" type="ScrollContainer" parent="PanelContainer2/VBoxContainer"]
 layout_mode = 2
 vertical_scroll_mode = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer2/VBoxContainer/ScrollContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="All" type="TextureButton" parent="ScrollContainer2/HBoxContainer"]
+[node name="All" type="TextureButton" parent="PanelContainer2/VBoxContainer/ScrollContainer2/HBoxContainer"]
+modulate = Color(0, 18.892157, 0, 1)
+self_modulate = Color(0, 1, 0, 1)
+material = ExtResource("4_rrk6g")
 layout_mode = 2
-texture_normal = ExtResource("1_c2e3m")
+toggle_mode = true
+button_pressed = true
+action_mode = 0
+button_group = ExtResource("4_4cbst")
+texture_normal = SubResource("CompressedTexture2D_o5xlp")
+stretch_mode = 5
