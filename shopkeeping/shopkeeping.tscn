@@ -1,0 +1,105 @@
+[gd_scene load_steps=14 format=3 uid="uid://bd4fs2bkgflle"]
+
+[ext_resource type="Script" uid="uid://c5crh16wdfwss" path="res://shopkeeping/shopkeeping.gd" id="1_34se1"]
+[ext_resource type="PackedScene" uid="uid://crx5pctwjuhwa" path="res://shopkeeping/crafting/crafting.tscn" id="1_gelx1"]
+[ext_resource type="PackedScene" uid="uid://b4cjgxsuqtuub" path="res://shopkeeping/shop/shop.tscn" id="2_3dbs0"]
+[ext_resource type="Texture2D" uid="uid://b1jmj6jmlbjgn" path="res://res/ui/crafting.png" id="2_16hl3"]
+[ext_resource type="Texture2D" uid="uid://y8i4cqp57fqg" path="res://res/ui/scales.png" id="3_hyqjf"]
+[ext_resource type="Texture2D" uid="uid://cmjnna6bog4mt" path="res://res/ui/house.png" id="4_lkuf7"]
+[ext_resource type="PackedScene" uid="uid://dtmicrbytlask" path="res://shopkeeping/town/town.tscn" id="4_wcgam"]
+[ext_resource type="Texture2D" uid="uid://ctsy086akqa58" path="res://res/ui/adventure.png" id="5_1ue8y"]
+[ext_resource type="PackedScene" uid="uid://70fushth34in" path="res://shopkeeping/heroes/heroes.tscn" id="5_cass8"]
+[ext_resource type="PackedScene" uid="uid://bvup71cr3xdy6" path="res://shopkeeping/adventure_select/adventure_select.tscn" id="6_3vbii"]
+[ext_resource type="PackedScene" uid="uid://psa2d6l2di7u" path="res://shopkeeping/gather_select/gather_select.tscn" id="7_gkete"]
+[ext_resource type="Texture2D" uid="uid://il54di45rkwo" path="res://res/ui/hero.png" id="11_2pe84"]
+[ext_resource type="Texture2D" uid="uid://b21go8oiog55b" path="res://res/ui/gather.png" id="13_7gdt0"]
+
+[node name="Shopkeeping" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_34se1")
+
+[node name="Shop" parent="." instance=ExtResource("2_3dbs0")]
+layout_mode = 2
+
+[node name="Crafting" parent="." instance=ExtResource("1_gelx1")]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Town" parent="." instance=ExtResource("4_wcgam")]
+visible = false
+layout_mode = 2
+
+[node name="Heroes" parent="." instance=ExtResource("5_cass8")]
+visible = false
+layout_mode = 2
+
+[node name="AdventureSelect" parent="." instance=ExtResource("6_3vbii")]
+visible = false
+layout_mode = 2
+
+[node name="GatherSelect" parent="." instance=ExtResource("7_gkete")]
+visible = false
+layout_mode = 2
+
+[node name="Padding" type="Control" parent="."]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="Tabs" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="ShopButton" type="TextureButton" parent="Tabs"]
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+toggle_mode = true
+texture_normal = ExtResource("3_hyqjf")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="CraftingButton" type="TextureButton" parent="Tabs"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+texture_normal = ExtResource("2_16hl3")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TownButton" type="TextureButton" parent="Tabs"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+texture_normal = ExtResource("4_lkuf7")
+stretch_mode = 5
+
+[node name="HeroesButton" type="TextureButton" parent="Tabs"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+texture_normal = ExtResource("11_2pe84")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="AdventureSellectButton" type="TextureButton" parent="Tabs"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+texture_normal = ExtResource("5_1ue8y")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="GatheringSelectButton" type="TextureButton" parent="Tabs"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+texture_normal = ExtResource("13_7gdt0")
+ignore_texture_size = true
+stretch_mode = 5

@@ -1,4 +1,0 @@
-dirt.png - https://opengameart.org/content/grass-and-dirt-tiles-32x32
-stone, iron_ore - REXARD mining icons
-iron_ingot, grass - REXARD resources and crafting
-wood, plank, herb - REXARD forest icons

@@ -1,0 +1,8 @@
+dirt.png - https://opengameart.org/content/grass-and-dirt-tiles-32x32
+stone, iron_ore - REXARD mining icons
+iron_ingot, grass - REXARD resources and crafting
+wood, plank, herb - REXARD forest icons
+hammer - https://www.iconsdb.com/black-icons/hammer-icon.html
+
+types, ui - mine, made in https://www.piskelapp.com/p/create/sprite/
+ppickaxe - https://www.cleanpng.com/png-line-angle-pickaxe-product-design-clip-art-7086771/download-png.html (no atrib. needed)

@@ -27,3 +27,18 @@ func change_material_amount(mat: int, value: int):
 	# value can be positive or negative. Expecting caller to check if can afford
 	materials[mat] += value
 	changed_material_amount.emit(mat)
+
+
+func can_afford(cost: Dictionary):
+	for mat in cost:
+		if materials[mat] < cost[mat]:
+			return false
+	return true
+
+
+func pay_materials(cost: Dictionary):
+	# pays materials, usually for crafting
+	# expects caller to check if can afford first
+	for mat in cost:
+		materials[mat] -= cost[mat]
+		changed_material_amount.emit(mat)

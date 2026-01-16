@@ -19,3 +19,11 @@ func get_abilities():
 
 func get_unlocked_materials():
 	return [Enums.material_types.IRON, Enums.material_types.WOOD]
+
+
+func get_rarity_up_chance(type: int) -> float:
+	return 1.0 #TODO
+
+
+func get_free_craft_chance(type: int) -> float:
+	return 0.0 #TODO
