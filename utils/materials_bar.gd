@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends BoxContainer
 
 var material_scene = preload("res://utils/material_tile.tscn")
 var material_to_tile = { }

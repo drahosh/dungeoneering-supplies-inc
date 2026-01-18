@@ -3,4 +3,8 @@
 [ext_resource type="StyleBox" uid="uid://c5rdwmsgu6x1b" path="res://shopkeeping/crafting/item_style_box.tres" id="1_t3ju6"]
 
 [resource]
+MarginContainer/constants/margin_bottom = 5
+MarginContainer/constants/margin_left = 5
+MarginContainer/constants/margin_right = 5
+MarginContainer/constants/margin_top = 5
 PanelContainer/styles/panel = ExtResource("1_t3ju6")

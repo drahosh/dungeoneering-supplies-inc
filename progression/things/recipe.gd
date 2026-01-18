@@ -38,7 +38,14 @@ func craftable():
 	return Materials.can_afford(cost) # TODO also check for unlock, skill, item_cost
 
 
+func craft_to_inventory():
+	var item = craft()
+	if item:
+		Inventory.add_item(item)
+
+
 func craft() -> CraftedItem:
+	# Createss item and adds it to inventory
 	if not craftable():
 		return null
 	# TODO pay item_cost

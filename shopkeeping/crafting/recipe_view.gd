@@ -14,8 +14,11 @@ func _ready() -> void:
 		var tile = material_tile.instantiate()
 		tile.find_child("TextureRect").texture = Enums.material_to_sprite[mat]
 		tile.find_child("Label").text = str(recipe.cost[mat])
+		$VBoxContainer/HFlowContainer.add_child(tile)
 	toggle_craftable_effect()
 	Materials.changed_material_amount.connect(toggle_craftable_effect)
+	Inventory.inventory_changed.connect(change_item_amount)
+	$VBoxContainer/Button.pressed.connect(recipe.craft_to_inventory)
 
 
 func toggle_craftable_effect():

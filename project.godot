@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Materials="*res://progression/things/materials.gd"
 BuildingProgress="*res://progression/places/building_progress.gd"
 CraftingRecipes="*res://progression/things/crafting_recipes.gd"
+Inventory="*res://progression/things/inventory.gd"
 
 [display]
 

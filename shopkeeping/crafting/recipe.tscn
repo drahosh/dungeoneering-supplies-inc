@@ -1,12 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://m74cb82baq4c"]
+[gd_scene load_steps=4 format=3 uid="uid://m74cb82baq4c"]
 
 [ext_resource type="Theme" uid="uid://xagoq3l01wlw" path="res://shopkeeping/crafting/item_style.tres" id="1_oenly"]
-[ext_resource type="Script" uid="uid://cenv0pw24qtpp" path="res://shopkeeping/crafting/recipe_display.gd" id="2_oenly"]
+[ext_resource type="Script" uid="uid://cenv0pw24qtpp" path="res://shopkeeping/crafting/recipe_view.gd" id="2_oenly"]
 [ext_resource type="Texture2D" uid="uid://b22xh6xglbx0b" path="res://res/other resources/TradingIcons_112_t.PNG" id="3_6mhpt"]
-
-[sub_resource type="GDScript" id="GDScript_oenly"]
-script/source = "extends HFlowContainer
-"
 
 [node name="Recipe" type="PanelContainer"]
 custom_minimum_size = Vector2(120, 280)
@@ -68,7 +64,6 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 size_flags_vertical = 3
-script = SubResource("GDScript_oenly")
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2

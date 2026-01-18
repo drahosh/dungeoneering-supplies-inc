@@ -1,4 +1,4 @@
-extends HBoxContainer
+extends VBoxContainer
 
 var recipe_scene = preload("res://shopkeeping/crafting/recipe.tscn")
 var current_button: TextureButton
