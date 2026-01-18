@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://byd5agkd3brn"]
 
 [ext_resource type="Script" uid="uid://28yyti08iku2" path="res://shopkeeping/gather_select/gather_select_option.gd" id="1_pujdq"]
-[ext_resource type="Theme" uid="uid://cq22p7ssoglja" path="res://main_menu/panel_theme.tres" id="1_yf6cb"]
+[ext_resource type="Theme" uid="uid://cq22p7ssoglja" path="res://utils/styles/panel_theme.tres" id="1_yf6cb"]
 
 [node name="GatherSelectOption" type="VBoxContainer"]
 anchors_preset = 15

@@ -4,7 +4,7 @@ extends Control
 @onready var board_container = $VBoxContainer/HBoxContainer/Matching
 @onready var timer = $VBoxContainer/TurnCounter/TurnLabel
 @onready var abilities = $VBoxContainer/Abilities/HBoxContainer
-@onready var exit_button = $VBoxContainer/HBoxContainer/Padding2/Exit
+@onready var exit_button = $VBoxContainer/HBoxContainer/RightMenu/Exit
 @onready var warning_popup = $WarningPopup
 @onready var warning_exit = $WarningPopup/PanelContainer/VBoxContainer/HBoxContainer/Exit
 @onready var warning_stay = $WarningPopup/PanelContainer/VBoxContainer/HBoxContainer/Stay
@@ -37,8 +37,10 @@ func update_timer():
 
 
 func _resize_board():
-	var container_size_x = board_container.size[0]
-	var container_size_y = board_container.size[1]
+	var stylebox: StyleBox = board_container.get_theme_stylebox("panel")
+	var margin := stylebox.content_margin_bottom
+	var container_size_x = board_container.size[0] - margin * 2
+	var container_size_y = board_container.size[1] - margin * 2
 	var columns = board.configuration.grid_width
 	var rows = board.configuration.grid_height
 	# we want cells to be square
@@ -46,8 +48,9 @@ func _resize_board():
 	board.configuration.cell_size = Vector2i(cell_size, cell_size)
 	var spare_space_horizontal = container_size_x - (cell_size * columns)
 	var spare_space_vertical = container_size_y - (cell_size * rows)
-	# board seems to start in middle of first cell
-	board.set_position(Vector2((spare_space_horizontal + cell_size) / 2, (spare_space_vertical + cell_size) / 2))
+	# intent is that vertical or horizontal will have some empty space in one dimension, so we halve it to center it
+	# board seems to start in middle of first cell, so we add that half cell_size too
+	board.set_position(Vector2((spare_space_horizontal + cell_size) / 2 + margin, (spare_space_vertical + cell_size) / 2 + margin))
 	await board.draw_cells()
 	await board.draw_pieces()
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dwo4pswyxatia" path="res://gathering/gathering.gd" id="1_2o4td"]
 [ext_resource type="Script" uid="uid://dtcunct55fm3r" path="res://gathering/my_board.gd" id="2_2o4td"]
-[ext_resource type="Theme" uid="uid://cq22p7ssoglja" path="res://main_menu/panel_theme.tres" id="2_34wmk"]
+[ext_resource type="Theme" uid="uid://cq22p7ssoglja" path="res://utils/styles/panel_theme.tres" id="2_34wmk"]
 [ext_resource type="Resource" uid="uid://wqciodcw8g5c" path="res://gathering/GatheringBoardConfiguration.tres" id="2_b4ein"]
 [ext_resource type="Script" uid="uid://x4t4pgc4mayl" path="res://utils/materials_bar.gd" id="2_b63ps"]
 [ext_resource type="Script" uid="uid://l6w2l27wa40f" path="res://addons/ninetailsrabbit.match3_board/demo/demo_animator.gd" id="3_kdrly"]
@@ -60,15 +60,17 @@ metadata/_custom_type_script = "uid://dks25ocxl5476"
 script = ExtResource("3_kdrly")
 board = NodePath("..")
 
-[node name="Padding2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="RightMenu" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="Exit" type="TextureButton" parent="VBoxContainer/HBoxContainer/Padding2"]
+[node name="Exit" type="TextureButton" parent="VBoxContainer/HBoxContainer/RightMenu"]
 layout_mode = 2
+size_flags_horizontal = 8
 size_flags_vertical = 6
 texture_normal = ExtResource("7_otoab")
+stretch_mode = 5
 
 [node name="Abilities" type="ScrollContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 60)

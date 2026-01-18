@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://m74cb82baq4c"]
 
-[ext_resource type="Theme" uid="uid://xagoq3l01wlw" path="res://shopkeeping/crafting/item_style.tres" id="1_oenly"]
+[ext_resource type="Theme" uid="uid://xagoq3l01wlw" path="res://utils/styles/item_style.tres" id="1_oenly"]
 [ext_resource type="Script" uid="uid://cenv0pw24qtpp" path="res://shopkeeping/crafting/recipe_view.gd" id="2_oenly"]
 [ext_resource type="Texture2D" uid="uid://b22xh6xglbx0b" path="res://res/other resources/TradingIcons_112_t.PNG" id="3_6mhpt"]
 

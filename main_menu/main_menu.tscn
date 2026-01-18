@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://djeai78vkqrpe"]
 
-[ext_resource type="Theme" uid="uid://cq22p7ssoglja" path="res://main_menu/panel_theme.tres" id="1_oa53l"]
+[ext_resource type="Theme" uid="uid://cq22p7ssoglja" path="res://utils/styles/panel_theme.tres" id="1_oa53l"]
 
 [node name="MainMenu" type="PanelContainer"]
 anchors_preset = 15

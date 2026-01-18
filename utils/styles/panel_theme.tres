@@ -14,11 +14,11 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28lua"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.069913976, 0.11936314, 0.14243373, 0.6)
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.25323623, 0.19074765, 0.072320394, 1)
 border_width_left = 20
 border_width_top = 20
 border_width_right = 20
