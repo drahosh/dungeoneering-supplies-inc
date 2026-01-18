@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://wmcnevgcc4g5"]
+[gd_scene load_steps=8 format=3 uid="uid://wmcnevgcc4g5"]
 
 [ext_resource type="Script" uid="uid://dwo4pswyxatia" path="res://gathering/gathering.gd" id="1_2o4td"]
 [ext_resource type="Script" uid="uid://dtcunct55fm3r" path="res://gathering/my_board.gd" id="2_2o4td"]
@@ -6,8 +6,10 @@
 [ext_resource type="Resource" uid="uid://wqciodcw8g5c" path="res://gathering/GatheringBoardConfiguration.tres" id="2_b4ein"]
 [ext_resource type="Script" uid="uid://x4t4pgc4mayl" path="res://utils/materials_bar.gd" id="2_b63ps"]
 [ext_resource type="Script" uid="uid://l6w2l27wa40f" path="res://addons/ninetailsrabbit.match3_board/demo/demo_animator.gd" id="3_kdrly"]
+[ext_resource type="Texture2D" uid="uid://c6s2x1o70fp7j" path="res://res/ui/exit.png" id="7_otoab"]
 
-[node name="Gathering" type="VBoxContainer"]
+[node name="Gathering" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -15,54 +17,121 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2o4td")
 
-[node name="TurnCounter" type="HBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TurnCounter" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="TurnLabel" type="Label" parent="TurnCounter"]
+[node name="TurnLabel" type="Label" parent="VBoxContainer/TurnCounter"]
 layout_mode = 2
 size_flags_horizontal = 6
 text = "20 turns left"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 script = ExtResource("2_b63ps")
 
-[node name="Matching" type="PanelContainer" parent="HBoxContainer"]
+[node name="Matching" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_34wmk")
 
-[node name="Node2D" type="Node2D" parent="HBoxContainer/Matching"]
+[node name="Node2D" type="Node2D" parent="VBoxContainer/HBoxContainer/Matching"]
 
-[node name="Match3Board" type="Node2D" parent="HBoxContainer/Matching/Node2D" node_paths=PackedStringArray("animator")]
+[node name="Match3Board" type="Node2D" parent="VBoxContainer/HBoxContainer/Matching/Node2D" node_paths=PackedStringArray("animator")]
 script = ExtResource("2_2o4td")
 configuration = ExtResource("2_b4ein")
 animator = NodePath("Match3Animator")
 metadata/_custom_type_script = "uid://dks25ocxl5476"
 
-[node name="Match3Animator" type="Node" parent="HBoxContainer/Matching/Node2D/Match3Board" node_paths=PackedStringArray("board")]
+[node name="Match3Animator" type="Node" parent="VBoxContainer/HBoxContainer/Matching/Node2D/Match3Board" node_paths=PackedStringArray("board")]
 script = ExtResource("3_kdrly")
 board = NodePath("..")
 
-[node name="Padding2" type="Control" parent="HBoxContainer"]
+[node name="Padding2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="Abilities" type="ScrollContainer" parent="."]
+[node name="Exit" type="TextureButton" parent="VBoxContainer/HBoxContainer/Padding2"]
+layout_mode = 2
+size_flags_vertical = 6
+texture_normal = ExtResource("7_otoab")
+
+[node name="Abilities" type="ScrollContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_stretch_ratio = 0.1
 vertical_scroll_mode = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Abilities"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Abilities"]
 clip_contents = true
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="WarningPopup" type="CenterContainer" parent="."]
+visible = false
+z_index = 1025
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="WarningPopup"]
+layout_mode = 2
+theme = ExtResource("2_34wmk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WarningPopup/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="WarningPopup/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "Warning
+
+You can still gather materials.
+Leaving now would waste your turns left.
+
+"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="WarningPopup/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Padding3" type="Control" parent="WarningPopup/PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="Exit" type="Button" parent="WarningPopup/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "EXIT"
+
+[node name="Padding" type="Control" parent="WarningPopup/PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Stay" type="Button" parent="WarningPopup/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "STAY"
+
+[node name="Padding2" type="Control" parent="WarningPopup/PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2

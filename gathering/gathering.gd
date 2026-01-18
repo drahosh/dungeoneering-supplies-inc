@@ -1,9 +1,13 @@
-extends VBoxContainer
+extends Control
 
-@onready var board: MyBoard = $HBoxContainer/Matching/Node2D/Match3Board
-@onready var board_container = $HBoxContainer/Matching
-@onready var timer = $TurnCounter/TurnLabel
-@onready var abilities = $Abilities/HBoxContainer
+@onready var board: MyBoard = $VBoxContainer/HBoxContainer/Matching/Node2D/Match3Board
+@onready var board_container = $VBoxContainer/HBoxContainer/Matching
+@onready var timer = $VBoxContainer/TurnCounter/TurnLabel
+@onready var abilities = $VBoxContainer/Abilities/HBoxContainer
+@onready var exit_button = $VBoxContainer/HBoxContainer/Padding2/Exit
+@onready var warning_popup = $WarningPopup
+@onready var warning_exit = $WarningPopup/PanelContainer/VBoxContainer/HBoxContainer/Exit
+@onready var warning_stay = $WarningPopup/PanelContainer/VBoxContainer/HBoxContainer/Stay
 
 
 func _ready():
@@ -11,6 +15,9 @@ func _ready():
 	board.consumed_sequence.connect(add_energy_and_turn)
 	board_container.resized.connect(_resize_board)
 	board.movement_consumed.connect(update_timer)
+	exit_button.pressed.connect(exit)
+	warning_exit.pressed.connect(func(): exit(true))
+	warning_stay.pressed.connect(toggle_warning_popup)
 	update_timer()
 	for ability: Ability in BuildingProgress.get_abilities():
 		ability.ability_deactivated.connect(board.deselect_ability)
@@ -48,3 +55,14 @@ func _resize_board():
 func _add_extra_turn():
 	board.current_available_moves += 1
 	update_timer()
+
+
+func exit(sure := false):
+	if sure or (board.current_available_moves == 0 and board.current_state == board.BoardState.WaitForInput):
+		get_tree().change_scene_to_file("res://shopkeeping/shopkeeping.tscn")
+	else:
+		toggle_warning_popup(true)
+
+
+func toggle_warning_popup(p_visible := false):
+	warning_popup.visible = p_visible
