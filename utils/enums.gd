@@ -24,7 +24,7 @@ static var material_to_sprite = {
 #endregion
 
 #region "items"
-enum rarity {
+enum RARITY {
 	COMMON,
 	UNCOMMON,
 	RARE,
@@ -32,21 +32,21 @@ enum rarity {
 	PERFECT,
 }
 static var rarity_price_mult = {
-	rarity.COMMON: 1,
-	rarity.UNCOMMON: 1.5,
-	rarity.RARE: 2.25,
-	rarity.LEGENDARY: 3.5,
-	rarity.PERFECT: 6,
+	RARITY.COMMON: 1,
+	RARITY.UNCOMMON: 1.5,
+	RARITY.RARE: 2.25,
+	RARITY.LEGENDARY: 3.5,
+	RARITY.PERFECT: 6,
 }
 static var rarity_stat_mult = {
-	rarity.COMMON: 1,
-	rarity.UNCOMMON: 1.1,
-	rarity.RARE: 1.2,
-	rarity.LEGENDARY: 1.35,
-	rarity.PERFECT: 1.5,
+	RARITY.COMMON: 1,
+	RARITY.UNCOMMON: 1.1,
+	RARITY.RARE: 1.2,
+	RARITY.LEGENDARY: 1.35,
+	RARITY.PERFECT: 1.5,
 }
 static var baseRarityUpChance = 0.1
-enum stats {
+enum STATS {
 	ATK,
 	ARMOR,
 	EVASION,

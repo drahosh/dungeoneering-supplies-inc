@@ -21,7 +21,7 @@ func get_unlocked_materials():
 	return [Enums.material_types.GOLD, Enums.material_types.IRON, Enums.material_types.WOOD]
 
 
-func get_rarity_up_chance(type: int) -> float:
+func get_rarity_up_chance_mult(type: int) -> float:
 	return 1.0 #TODO
 
 

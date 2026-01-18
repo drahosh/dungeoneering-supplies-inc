@@ -10,7 +10,7 @@ var value: int
 var type: int # item type (Enums.ITEM_TYPE) - for example "Meelee weapon", "armor", "enchantment"
 var tier: int #
 
-var base_rarity: int = Enums.rarity.COMMON
+var base_rarity: int = Enums.RARITY.COMMON
 var crafted_times: int = 0
 
 
@@ -50,14 +50,12 @@ func craft() -> CraftedItem:
 		return null
 	# TODO pay item_cost
 	var rarity = base_rarity
-	var rarityUpChance = Enums.baseRarityUpChance * BuildingProgress.get_rarity_up_chance(type)
-	while true:
+	var rarityUpChance = Enums.baseRarityUpChance * BuildingProgress.get_rarity_up_chance_mult(type)
+	while rarity < Enums.RARITY.PERFECT:
 		if randf() < rarityUpChance:
 			rarity += 1
 		else:
-			pass
-	if rarity > Enums.rarity.PERFECT:
-		rarity = Enums.rarity.PERFECT
+			break
 	var free_craft_chance = BuildingProgress.get_free_craft_chance(type)
 	if randf() >= free_craft_chance:
 		Materials.pay_materials(cost)

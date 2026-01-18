@@ -9,9 +9,9 @@ var unlocked_types = []
 
 func _ready() -> void:
 	# initializes ALL recipes and adds sword and bow to initial unlocks
-	recipes["swordT1"] = ItemRecipe.new(preload("res://res/items/Barbarian_icons_22_b.PNG"), "Iron shortsword", { Enums.material_types.IRON: 3 }, { }, { Enums.stats.ATK: 10 }, 10, Enums.ITEM_TYPE.SWORD, 1)
+	recipes["swordT1"] = ItemRecipe.new(preload("res://res/items/Barbarian_icons_22_b.PNG"), "Iron shortsword", { Enums.material_types.IRON: 3 }, { }, { Enums.STATS.ATK: 10 }, 10, Enums.ITEM_TYPE.SWORD, 1)
 	unlock_recipe("swordT1")
-	recipes["bowT1"] = ItemRecipe.new(preload("res://res/items/Barbarian_icons_116_b.png"), "Shortbow", { Enums.material_types.WOOD: 2, Enums.material_types.IRON: 1 }, { }, { Enums.stats.ATK: 8, Enums.stats.EVASION: 2 }, 10, Enums.ITEM_TYPE.BOW, 1)
+	recipes["bowT1"] = ItemRecipe.new(preload("res://res/items/Barbarian_icons_116_b.png"), "Shortbow", { Enums.material_types.WOOD: 2, Enums.material_types.IRON: 1 }, { }, { Enums.STATS.ATK: 8, Enums.STATS.EVASION: 2 }, 10, Enums.ITEM_TYPE.BOW, 1)
 	unlock_recipe("bowT1")
 
 

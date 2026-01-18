@@ -10,6 +10,7 @@ func _ready() -> void:
 		material_tile.find_child("TextureRect").texture = Enums.material_to_sprite[mat]
 		material_to_tile[mat] = material_tile
 		self.add_child(material_tile)
+		update_mat(mat)
 	Materials.changed_material_amount.connect(update_mat)
 
 

@@ -20,5 +20,5 @@ func _init(recipe: ItemRecipe, p_rarity: int):
 	image = recipe.image
 	rarity = p_rarity
 	for stat in stats:
-		stats[stat] = round(stats[stat] * Enums.rarity_stat_mult[rarity])
-	value = round(recipe.value * Enums.rarity_price_mult)
+		stats[stat] = round(stats[stat] * Enums.rarity_stat_mult[p_rarity])
+	value = round(recipe.value * Enums.rarity_price_mult[p_rarity])

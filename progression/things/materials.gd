@@ -9,7 +9,7 @@ var materials: Dictionary = { }
 
 func _ready():
 	for material in Enums.material_types.values():
-		materials[material] = 0
+		materials[material] = 10
 
 
 func add_matched_materials(sequence: Match3Sequence):

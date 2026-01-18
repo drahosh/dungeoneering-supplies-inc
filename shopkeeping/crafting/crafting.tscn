@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://crx5pctwjuhwa"]
+[gd_scene load_steps=6 format=3 uid="uid://crx5pctwjuhwa"]
 
 [ext_resource type="Theme" uid="uid://cq22p7ssoglja" path="res://main_menu/panel_theme.tres" id="1_o5xlp"]
 [ext_resource type="Script" uid="uid://bd64y6jrbt6tf" path="res://shopkeeping/crafting/crafting.gd" id="1_scy3v"]
-[ext_resource type="Script" uid="uid://x4t4pgc4mayl" path="res://utils/materials_bar.gd" id="3_rrk6g"]
 [ext_resource type="ButtonGroup" uid="uid://cjr81ka6lga0a" path="res://shopkeeping/crafting/filter_button_group.tres" id="4_4cbst"]
 [ext_resource type="Material" uid="uid://clje3nsh2tdlp" path="res://shopkeeping/crafting/button_selected_material.tres" id="4_rrk6g"]
 
@@ -16,16 +15,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_scy3v")
-
-[node name="ScrollContainer3" type="ScrollContainer" parent="."]
-layout_mode = 2
-vertical_scroll_mode = 0
-
-[node name="HSplitContainer" type="HBoxContainer" parent="ScrollContainer3"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-script = ExtResource("3_rrk6g")
 
 [node name="PanelContainer2" type="PanelContainer" parent="."]
 layout_mode = 2

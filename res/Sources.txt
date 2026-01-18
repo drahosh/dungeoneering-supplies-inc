@@ -5,4 +5,4 @@ wood, plank, herb - REXARD forest icons
 hammer - https://www.iconsdb.com/black-icons/hammer-icon.html
 
 types, ui - mine, made in https://www.piskelapp.com/p/create/sprite/
-ppickaxe - https://www.cleanpng.com/png-line-angle-pickaxe-product-design-clip-art-7086771/download-png.html (no atrib. needed)
+pickaxe - https://www.cleanpng.com/png-line-angle-pickaxe-product-design-clip-art-7086771/download-png.html (no atrib. needed)
