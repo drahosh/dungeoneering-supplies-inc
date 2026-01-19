@@ -73,7 +73,16 @@ func consume_sequences(sequences: Array[Match3Sequence]) -> void:
 			if refining:
 				for cell in middle_elements(combo.sequence.cells):
 					var piece = Match3Piece.from_configuration(refined_config)
-					draw_piece_on_cell(cell, piece)
+					if cell.is_empty():
+						draw_piece_on_cell(cell, piece)
+					else:
+						# can happen on cross shape match with overlapping middles
+						# -x-
+						# xxx
+						# -X-
+						var neighbor = find_empty_neighbor(cell)
+						if neighbor:
+							draw_piece_on_cell(neighbor, piece)
 					piece.is_locked = true
 
 			# Addition 2 end
@@ -89,3 +98,16 @@ func consume_sequences(sequences: Array[Match3Sequence]) -> void:
 			consume_special_pieces(pending_special_pieces)
 		else:
 			travel_to(BoardState.SpecialConsume)
+
+
+func swap_movement_is_valid(from_cell: Match3GridCell, to_cell: Match3GridCell) -> bool:
+	if current_available_moves == 0:
+		return false
+	return super.swap_movement_is_valid(from_cell, to_cell)
+
+
+func find_empty_neighbor(cell: Match3GridCell) -> Match3GridCell:
+	for neighbor in cell.neighbours():
+		if neighbor and neighbor.is_empty():
+			return neighbor
+	return null

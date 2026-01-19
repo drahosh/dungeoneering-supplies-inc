@@ -18,4 +18,6 @@ grid_cell_scene = ExtResource("8_qpf63")
 selection_mode = 1
 auto_start = false
 available_moves_on_start = 20
+tshape = false
+lshape = false
 metadata/_custom_type_script = "uid://3l3gq7rur1l4"
