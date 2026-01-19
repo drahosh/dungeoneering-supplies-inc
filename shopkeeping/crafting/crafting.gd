@@ -2,7 +2,7 @@ extends VBoxContainer
 
 var recipe_scene = preload("res://shopkeeping/crafting/recipe.tscn")
 var current_button: TextureButton
-var selected_button_material = preload("res://shopkeeping/crafting/button_selected_material.tres")
+var selected_button_material = preload("res://utils/styles/button_selected_material.tres")
 var current_type_filter: int = -1
 
 

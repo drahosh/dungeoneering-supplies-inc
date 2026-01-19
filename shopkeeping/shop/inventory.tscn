@@ -28,13 +28,15 @@ layout_mode = 2
 size_flags_horizontal = 2
 selected = 0
 allow_reselect = true
-item_count = 3
+item_count = 4
 popup/item_0/text = "Tier"
 popup/item_0/id = 0
 popup/item_1/text = "Value"
 popup/item_1/id = 1
 popup/item_2/text = "Amount"
-popup/item_2/id = 3
+popup/item_2/id = 2
+popup/item_3/text = "Rarity"
+popup/item_3/id = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
 layout_mode = 2
