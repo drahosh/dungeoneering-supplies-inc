@@ -20,5 +20,5 @@ func _ready() -> void:
 
 
 func change_scene():
-	var x = get_tree().change_scene_to_file(target_scene_file_name)
-	print(x)
+	DayManager.start_gathering()
+	get_tree().change_scene_to_file(target_scene_file_name)

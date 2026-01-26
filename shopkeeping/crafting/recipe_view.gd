@@ -37,7 +37,7 @@ func toggle_craftable_effect():
 
 
 func set_item_amounts():
-	var amounts = Inventory.get_item_amount_per_rarity(recipe)
+	var amounts = Inventory.get_item_amount_per_rarity(recipe.item_name)
 	$VBoxContainer/Amount.text = "%s [color=green]%s[/color] [color=blue]%s[/color] [color=yellow]%s[/color] [color=red]%s[/color]" % [
 		amounts[Enums.RARITY.COMMON],
 		amounts[Enums.RARITY.UNCOMMON],

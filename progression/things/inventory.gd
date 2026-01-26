@@ -31,21 +31,30 @@ func get_amount(item: CraftedItem) -> int:
 	return inventory.get(item.item_name, { }).get(item.rarity, [null, 0])[1]
 
 
-func get_as_list() -> Array:
+func get_as_list(include_amounts := true) -> Array:
 	# returns array [[item, amount],[item, amount]...]
+	# if include_amounts is false, returns just array of items
 	var to_return = []
 	for item_name in inventory:
 		for rarity in inventory[item_name]:
-			to_return.append(inventory[item_name][rarity])
+			if include_amounts:
+				to_return.append(inventory[item_name][rarity])
+			else:
+				to_return.append(inventory[item_name][rarity][0])
 	return to_return
 
 
-func get_item_amount_per_rarity(recipe: ItemRecipe) -> Dictionary:
+func get_item_amount_per_rarity(item_name: String) -> Dictionary:
 	# returns dictionary from rarity to amount
 	# if rarity not in inventory, returns it with 0
 	# if item not in inventory, returns each rarity with 0
-	var item = inventory.get(recipe.item_name, { })
+	var item = inventory.get(item_name, { })
 	var to_return = { }
 	for rarity in Enums.RARITY.values():
 		to_return[rarity] = item.get(rarity, [null, 0])[1]
 	return to_return
+
+
+func get_items_of_types_under_tier(types: Array, max_tier: int) -> Array:
+	var items = get_as_list(false)
+	return items.filter(func(item): return item.type in types and item.tier <= max_tier)

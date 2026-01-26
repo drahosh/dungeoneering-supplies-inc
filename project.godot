@@ -12,6 +12,7 @@ config_version=5
 
 config/name="dungeoneering supplies inc."
 run/main_scene="uid://wmcnevgcc4g5"
+config/quit_on_go_back=false
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
@@ -21,6 +22,8 @@ Materials="*res://progression/things/materials.gd"
 BuildingProgress="*res://progression/places/building_progress.gd"
 CraftingRecipes="*res://progression/things/crafting_recipes.gd"
 Inventory="*res://progression/things/inventory.gd"
+Guilds="*res://progression/people/guilds.gd"
+DayManager="*res://progression/day_manager.gd"
 
 [display]
 

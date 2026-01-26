@@ -1,7 +1,7 @@
 extends PanelContainer
 
 class_name InventoryView
-var item_scene = preload("res://shopkeeping/shop/item.tscn")
+var item_scene = preload("res://shopkeeping/shop/inventory/item.tscn")
 
 
 func _ready() -> void:

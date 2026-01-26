@@ -7,7 +7,7 @@ var cost = { } # dict from material to amount
 var item_cost = { } # TODO implement, item crafted from one or more items
 var stats = { } # dict with stats modified by item at base rarity
 var value: int
-var type: int # item type (Enums.ITEM_TYPE) - for example "Meelee weapon", "armor", "enchantment"
+var type: int # item type Enums.ITEM_TYPE
 var tier: int #
 
 var base_rarity: int = Enums.RARITY.COMMON
@@ -62,7 +62,7 @@ func craft() -> CraftedItem:
 	return item_from_recipe(rarity)
 
 
-func item_from_recipe(rarity: int) -> CraftedItem:
+func item_from_recipe(rarity: Enums.RARITY = Enums.RARITY.COMMON) -> CraftedItem:
 	# Used when crafting and loading (items are saved as recipe, rarity, and (TODO) other)
 	var item = CraftedItem.new(self, rarity)
 	return item

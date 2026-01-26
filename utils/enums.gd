@@ -2,56 +2,61 @@ class_name Enums
 extends Object
 
 #region "materials"
-enum material_types {
+enum MATERIALS {
 	GOLD,
 	IRON,
 	WOOD,
 }
 
 # shape is used by plugin match3board, used to add resources from matching
-static var shape_to_material = {
-	"wood": material_types.WOOD,
-	"iron_ingot": material_types.IRON,
+const shape_to_material = {
+	"wood": MATERIALS.WOOD,
+	"iron_ingot": MATERIALS.IRON,
 }
-static var base_shape_to_refined_configuration = {
+const base_shape_to_refined_configuration = {
 	"iron_ore": preload("res://gathering/pieces/iron_ingot_configuration.tres"),
 }
-static var material_to_sprite = {
-	material_types.IRON: preload("res://res/match/iron_ingot.png"),
-	material_types.WOOD: preload("res://res/match/plank.PNG"),
-	material_types.GOLD: preload("res://res/other resources/TradingIcons_112_t.PNG"),
+const material_to_sprite = {
+	MATERIALS.IRON: preload("res://res/match/iron_ingot.png"),
+	MATERIALS.WOOD: preload("res://res/match/plank.PNG"),
+	MATERIALS.GOLD: preload("res://res/other resources/TradingIcons_112_t.PNG"),
 }
 #endregion
 
 #region "items"
 enum RARITY {
-	COMMON,
-	UNCOMMON,
-	RARE,
-	LEGENDARY,
-	PERFECT,
+	COMMON = 0,
+	UNCOMMON = 1,
+	RARE = 2,
+	LEGENDARY = 3,
+	PERFECT = 4,
 }
-static var rarity_price_mult = {
+const rarity_price_mult = {
 	RARITY.COMMON: 1,
 	RARITY.UNCOMMON: 1.5,
 	RARITY.RARE: 2.25,
 	RARITY.LEGENDARY: 3.5,
 	RARITY.PERFECT: 6,
 }
-static var rarity_stat_mult = {
+const rarity_stat_mult = {
 	RARITY.COMMON: 1,
 	RARITY.UNCOMMON: 1.1,
 	RARITY.RARE: 1.2,
 	RARITY.LEGENDARY: 1.35,
 	RARITY.PERFECT: 1.5,
 }
-static var baseRarityUpChance = 0.1
+const baseRarityUpChance = 0.1
 enum STATS {
 	ATK,
-	ARMOR,
-	EVASION,
+	ARMOR, # 100/(100+ARMOR) is final damage multiplier
+	EVASION, # 100/(100+EVASION) is chance to get hit by ranged
+	MAGIC_RESIST, # 100/(100+MR) is chance to get hit by magic
 	HP,
-	MANA,
+	ENERGY,
+	ENERGY_REGEN,
+	# using warframe rules for crit chance and damage
+	# For each 100% percent crit chance, multiply damage by crit damage
+	# The remaining crit chance is chance to multiply damage once again
 	CRIT_CHANCE,
 	CRIT_DAMAGE,
 }
@@ -65,9 +70,21 @@ enum ITEM_TYPE {
 	TRINKET,
 	CONSUMABLE,
 }
-static var type_to_sprite = {
+const type_to_sprite = {
 	ITEM_TYPE.SWORD: preload("res://res/ui/types/blades.png"),
 	ITEM_TYPE.BOW: preload("res://res/ui/types/bow.png"),
+	ITEM_TYPE.SHIELD: preload("res://res/ui/types/shield.png"),
+	ITEM_TYPE.ARMOR: preload("res://res/ui/types/armor.png"),
+	ITEM_TYPE.CONSUMABLE: preload("res://res/ui/types/consumable.png"),
+	ITEM_TYPE.TRINKET: preload("res://res/ui/types/trinket.png"),
 }
+
+enum ATTACK_TYPE {
+	MELEE,
+	RANGED,
+	MAGIC,
+}
+
+const reputation_xp_per_level = [10, 30, 60, 100, 150, 210, 270, 340, 420, 510, 600]
 
 #endregion

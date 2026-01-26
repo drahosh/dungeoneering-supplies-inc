@@ -8,7 +8,7 @@ var materials: Dictionary = { }
 
 
 func _ready():
-	for material in Enums.material_types.values():
+	for material in Enums.MATERIALS.values():
 		materials[material] = 10
 
 

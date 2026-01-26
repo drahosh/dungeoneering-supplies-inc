@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dvqrrh8ilaksl"]
 
 [ext_resource type="Theme" uid="uid://xagoq3l01wlw" path="res://utils/styles/item_style.tres" id="1_d861g"]
-[ext_resource type="Theme" uid="uid://dy5mayn22n47f" path="res://shopkeeping/shop/white_panel.tres" id="2_m6lgb"]
-[ext_resource type="Script" uid="uid://bu5dstc2vaer5" path="res://shopkeeping/shop/item_view.gd" id="2_ud8f6"]
-[ext_resource type="Theme" uid="uid://coppugraj2k5s" path="res://shopkeeping/shop/outline.tres" id="3_ud8f6"]
+[ext_resource type="Theme" uid="uid://dy5mayn22n47f" path="res://utils/styles/white_panel.tres" id="2_m6lgb"]
+[ext_resource type="Script" uid="uid://bu5dstc2vaer5" path="res://shopkeeping/shop/inventory/item_view.gd" id="2_ud8f6"]
+[ext_resource type="Theme" uid="uid://coppugraj2k5s" path="res://utils/styles/outline.tres" id="3_ud8f6"]
 
 [node name="Item" type="PanelContainer"]
 custom_minimum_size = Vector2(120, 150)

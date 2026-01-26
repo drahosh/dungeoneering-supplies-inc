@@ -1,0 +1,104 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmict7liarvlv"]
+
+[ext_resource type="Theme" uid="uid://xagoq3l01wlw" path="res://utils/styles/item_style.tres" id="1_5gh4u"]
+[ext_resource type="Script" uid="uid://ddppawk53lond" path="res://shopkeeping/shop/customers/customer_view.gd" id="1_31383"]
+[ext_resource type="Texture2D" uid="uid://csfc4lo7pyfis" path="res://icon.svg" id="2_eucbg"]
+[ext_resource type="Texture2D" uid="uid://vrte1jigkwjk" path="res://res/items/Barbarian_icons_22_b.PNG" id="3_c4h7q"]
+[ext_resource type="Theme" uid="uid://coppugraj2k5s" path="res://utils/styles/outline.tres" id="4_kwgna"]
+
+[node name="CustomerView" type="PanelContainer"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -54.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme = ExtResource("1_5gh4u")
+script = ExtResource("1_31383")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="CustomerImage" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_eucbg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "* wants to buy * for * G"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Outline" type="PanelContainer" parent="VBoxContainer/HBoxContainer/AspectRatioContainer"]
+layout_mode = 2
+theme = ExtResource("4_kwgna")
+
+[node name="ItemImage" type="TextureRect" parent="VBoxContainer/HBoxContainer/AspectRatioContainer/Outline"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_kwgna")
+texture = ExtResource("3_c4h7q")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="RepLevel" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Rep: x"
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+step = 1.0
+value = 25.0
+show_percentage = false
+
+[node name="CurrentRep" type="Label" parent="VBoxContainer/HBoxContainer2/ProgressBar"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "aaa/bbb"
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Sell" type="Button" parent="VBoxContainer/HBoxContainer3"]
+modulate = Color(0.7325292, 1.4160296, 0.7325292, 1)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "SELL"
+
+[node name="Refuse" type="Button" parent="VBoxContainer/HBoxContainer3"]
+modulate = Color(1.5229772, 0.43785208, 0.43785208, 1)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "REFUSE"

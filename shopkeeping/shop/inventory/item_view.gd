@@ -14,7 +14,7 @@ func _ready() -> void:
 	$MarginContainer/VBoxContainer/Label.text = str(amount)
 	$MarginContainer/VBoxContainer/PanelContainer/MarginContainer/TextureRect.texture = item.image
 	if item.rarity != Enums.RARITY.COMMON:
-		var color
+		var color = Color.WHITE
 		match item.rarity:
 			Enums.RARITY.UNCOMMON:
 				color = Color.SEA_GREEN

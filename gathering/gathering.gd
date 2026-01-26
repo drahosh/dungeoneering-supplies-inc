@@ -62,6 +62,7 @@ func _add_extra_turn():
 
 func exit(sure := false):
 	if sure or (board.current_available_moves == 0 and board.current_state == board.BoardState.WaitForInput):
+		DayManager.start_day()
 		get_tree().change_scene_to_file("res://shopkeeping/shopkeeping.tscn")
 	else:
 		toggle_warning_popup(true)
