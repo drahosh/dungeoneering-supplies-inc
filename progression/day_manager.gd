@@ -16,6 +16,7 @@ func start_day():
 	current_day += 1
 	phase = PHASE.SHOPKEEPING
 	Guilds.generate_customers()
+	Guilds.generate_hireable_heroes()
 
 
 func start_gathering():

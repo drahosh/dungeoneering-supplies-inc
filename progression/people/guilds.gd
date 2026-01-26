@@ -10,6 +10,11 @@ var customers_per_day := 4
 var streak_customers := 0 #TODO, unlock with upgrade
 var refused_customers_today := 0
 var active_customers = []
+var hired_heroes = []
+var hireable_heroes = []
+
+signal changed_hired_heroes
+signal changed_hireable_heroes
 
 
 func _ready() -> void:
@@ -77,6 +82,7 @@ func create_classes() -> void:
 		},
 		placeholder_image,
 		placeholder_image,
+		100,
 	)
 
 	classes["Medic"] = HeroClass.new(
@@ -97,4 +103,25 @@ func create_classes() -> void:
 		},
 		placeholder_image,
 		placeholder_image,
+		500,
 	)
+
+
+func hire_hero(hero: Hero):
+	Materials.pay_materials({ Enums.MATERIALS.GOLD: hero.hero_class.hiring_cost })
+	hired_heroes.append(hero)
+	hireable_heroes.remove_at(hireable_heroes.find(hero))
+	changed_hired_heroes.emit()
+	changed_hireable_heroes.emit()
+
+
+func fire_hero(hero: Hero):
+	hired_heroes.remove_at(hired_heroes.find(hero))
+	changed_hired_heroes.emit()
+
+
+func generate_hireable_heroes():
+	hireable_heroes = []
+	for guild_name in guilds:
+		for hero_class: HeroClass in guilds[guild_name].heroes:
+			hireable_heroes.append(hero_class.generate_hero())

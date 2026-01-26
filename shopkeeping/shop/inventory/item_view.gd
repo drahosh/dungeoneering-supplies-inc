@@ -11,23 +11,14 @@ func initialize(p_item: CraftedItem, p_amount: int):
 
 
 func _ready() -> void:
-	$MarginContainer/VBoxContainer/Label.text = str(amount)
-	$MarginContainer/VBoxContainer/PanelContainer/MarginContainer/TextureRect.texture = item.image
+	$VBoxContainer/Label.text = str(amount)
+	$VBoxContainer/PanelContainer/TextureRect.texture = item.image
 	if item.rarity != Enums.RARITY.COMMON:
-		var color = Color.WHITE
-		match item.rarity:
-			Enums.RARITY.UNCOMMON:
-				color = Color.SEA_GREEN
-			Enums.RARITY.RARE:
-				color = Color.DARK_BLUE
-			Enums.RARITY.LEGENDARY:
-				color = Color.ORANGE
-			Enums.RARITY.PERFECT:
-				color = Color.RED
-		$MarginContainer/VBoxContainer/PanelContainer.self_modulate = color
-		$MarginContainer/VBoxContainer/Label.add_theme_color_override("font_color", color)
+		var color = Enums.get_rarity_color(item.rarity)
+		$VBoxContainer/PanelContainer.self_modulate = color
+		$VBoxContainer/Label.add_theme_color_override("font_color", color)
 
 
 func update_amount(p_amount):
 	amount = p_amount
-	$MarginContainer/VBoxContainer/Label.text = amount
+	$VBoxContainer/Label.text = amount

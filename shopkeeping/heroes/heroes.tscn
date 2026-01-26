@@ -1,9 +1,58 @@
-[gd_scene format=3 uid="uid://70fushth34in"]
+[gd_scene load_steps=2 format=3 uid="uid://70fushth34in"]
 
-[node name="Heroes" type="Control"]
-layout_mode = 3
+[ext_resource type="Script" uid="uid://c3h8trcgdoekl" path="res://shopkeeping/heroes/heroes_view.gd" id="1_mxg5e"]
+
+[node name="Heroes" type="PanelContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_mxg5e")
+
+[node name="Current" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Current"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Heroes" type="VBoxContainer" parent="Current/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Current"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Hiring" type="Button" parent="Current/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Hire heroes"
+
+[node name="Autoequip" type="Button" parent="Current/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Autoequip"
+
+[node name="Hireable" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Hireable"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Heroes" type="VBoxContainer" parent="Hireable/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Back" type="Button" parent="Hireable"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Back
+"

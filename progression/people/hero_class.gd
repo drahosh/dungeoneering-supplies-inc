@@ -19,6 +19,8 @@ var level_stats: Dictionary # stats hero gains by default per level up
 var front_image: CompressedTexture2D
 var top_down_image: CompressedTexture2D
 
+var hiring_cost: int # gold to pay for hiring
+
 
 func _init(
 		p_name: String,
@@ -30,6 +32,7 @@ func _init(
 		p_level_stats: Dictionary,
 		p_front_image: CompressedTexture2D,
 		p_top_down_image: CompressedTexture2D,
+		p_hiring_cost: int,
 ) -> void:
 	name = p_name
 	item_slots = p_item_slots
@@ -40,6 +43,7 @@ func _init(
 	level_stats = p_level_stats
 	front_image = p_front_image
 	top_down_image = p_top_down_image
+	hiring_cost = p_hiring_cost
 
 
 func generate_customer() -> Customer:
@@ -55,5 +59,5 @@ func generate_customer() -> Customer:
 		return null # we can't craft an item this customer would want
 
 
-func generate_hero():
-	pass # TODO
+func generate_hero() -> Hero:
+	return Hero.new(self, guild.hero_starting_level)

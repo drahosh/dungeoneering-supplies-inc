@@ -1,7 +1,0 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dy5mayn22n47f"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60hm4"]
-bg_color = Color(0.83889705, 0.83889705, 0.8388969, 1)
-
-[resource]
-PanelContainer/styles/panel = SubResource("StyleBoxFlat_60hm4")

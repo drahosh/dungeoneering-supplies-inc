@@ -9,7 +9,7 @@ var materials: Dictionary = { }
 
 func _ready():
 	for material in Enums.MATERIALS.values():
-		materials[material] = 10
+		materials[material] = 100
 
 
 func add_matched_materials(sequence: Match3Sequence):

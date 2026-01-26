@@ -14,8 +14,9 @@ var current_reputation_xp: int:
 	set(value):
 		if value < 0:
 			value = 0
-		if value > Enums.reputation_xp_per_level[current_reputation_level]:
+		if value >= Enums.reputation_xp_per_level[current_reputation_level]:
 			value -= Enums.reputation_xp_per_level[current_reputation_level]
+			apply_upgrades(upgrades_per_rep_level[current_reputation_level])
 			current_reputation_level += 1
 		current_reputation_xp = value
 		reputation_changed.emit()
@@ -30,6 +31,7 @@ var windowshopping_rate: float # chance for customers to buy from inventory
 var selloff_rate: float # chance for customers to sell discounted bulk items to player instead
 var icon: CompressedTexture2D
 var max_tier: int # max item tier users can buy. New and max hero level also depends on this
+var hero_starting_level := 1
 enum UPGRADE_TYPE {
 	UNLOCK_CUSTOMER,
 	UNLOCK_HERO,
@@ -76,9 +78,9 @@ func apply_upgrades(upgrades: Dictionary):
 		var parameter = upgrades[upgrade_type]
 		match upgrade_type:
 			UPGRADE_TYPE.UNLOCK_CUSTOMER:
-				customers.append(parameter)
+				customers.append(get_hero_class(parameter))
 			UPGRADE_TYPE.UNLOCK_HERO:
-				heroes.append(parameter)
+				heroes.append(get_hero_class(parameter))
 			UPGRADE_TYPE.WINDOWSHOP_RATE:
 				windowshopping_rate = parameter
 			UPGRADE_TYPE.SELLOFF_RATE:
@@ -117,3 +119,12 @@ func get_max_level_from_tier(tier: int = max_tier):
 
 func generate_customer() -> Customer:
 	return customers.pick_random().generate_customer()
+
+
+func get_hero_class(number: int) -> HeroClass:
+	match number:
+		1:
+			return class1
+		2:
+			return class2
+	return null # shouldn't be possible

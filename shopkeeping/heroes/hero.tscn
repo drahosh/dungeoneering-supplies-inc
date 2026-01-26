@@ -1,0 +1,205 @@
+[gd_scene load_steps=7 format=3 uid="uid://co45dnow7uv2q"]
+
+[ext_resource type="Theme" uid="uid://cq22p7ssoglja" path="res://utils/styles/panel_theme.tres" id="1_51mw8"]
+[ext_resource type="Script" uid="uid://cif48xpmm37vx" path="res://shopkeeping/heroes/hero_view.gd" id="2_1cel8"]
+[ext_resource type="Texture2D" uid="uid://il54di45rkwo" path="res://res/ui/hero.png" id="2_mbper"]
+[ext_resource type="Texture2D" uid="uid://cntdy2yqryiis" path="res://res/ui/locked.png" id="3_b6o18"]
+[ext_resource type="Texture2D" uid="uid://l1cts17b0hm8" path="res://res/ui/types/star.png" id="4_b6o18"]
+[ext_resource type="Theme" uid="uid://coppugraj2k5s" path="res://utils/styles/outline.tres" id="5_64ugq"]
+
+[node name="Hero" type="PanelContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 43.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+theme = ExtResource("1_51mw8")
+script = ExtResource("2_1cel8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Name"
+horizontal_alignment = 1
+
+[node name="Level" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "lv. 00"
+horizontal_alignment = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+show_percentage = false
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/ProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -11.5
+offset_right = 32.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "aaa/bbb"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Image" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_mbper")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Abilities" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Active1" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/Abilities"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("3_b6o18")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Active2" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/Abilities"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("3_b6o18")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Passive1" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/Abilities"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("3_b6o18")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Passive2" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/Abilities"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("3_b6o18")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Passive3" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/Abilities"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("3_b6o18")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Passive4" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/Abilities"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("3_b6o18")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Items" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/Items"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/Items/AspectRatioContainer"]
+layout_mode = 2
+theme = ExtResource("5_64ugq")
+
+[node name="Item" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/Items/AspectRatioContainer/PanelContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("4_b6o18")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/Items"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/Items/AspectRatioContainer2"]
+layout_mode = 2
+theme = ExtResource("5_64ugq")
+
+[node name="Item" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/Items/AspectRatioContainer2/PanelContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("4_b6o18")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/Items"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/Items/AspectRatioContainer3"]
+layout_mode = 2
+theme = ExtResource("5_64ugq")
+
+[node name="Item" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/Items/AspectRatioContainer3/PanelContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("4_b6o18")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="AspectRatioContainer4" type="AspectRatioContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/Items"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/Items/AspectRatioContainer4"]
+layout_mode = 2
+theme = ExtResource("5_64ugq")
+
+[node name="Item" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/Items/AspectRatioContainer4/PanelContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("4_b6o18")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="HiringRow" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HiringRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "X G"
+scroll_active = false
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Hire" type="Button" parent="VBoxContainer/HiringRow"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Hire"

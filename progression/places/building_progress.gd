@@ -27,3 +27,7 @@ func get_rarity_up_chance_mult(_type: int) -> float:
 
 func get_free_craft_chance(_type: int) -> float:
 	return 0.0 #TODO
+
+
+func get_max_hero_amount() -> int:
+	return 4 # TODO

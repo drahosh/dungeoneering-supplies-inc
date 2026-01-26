@@ -86,5 +86,19 @@ enum ATTACK_TYPE {
 }
 
 const reputation_xp_per_level = [10, 30, 60, 100, 150, 210, 270, 340, 420, 510, 600]
-
+const xp_per_hero_level = [0, 10, 20, 40, 80, 160, 320, 640, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500]
+const max_level = 20
 #endregion
+
+static func get_rarity_color(rarity: int) -> Color:
+	match rarity:
+		RARITY.UNCOMMON:
+			return Color.SEA_GREEN
+		RARITY.RARE:
+			return Color.DARK_BLUE
+		RARITY.LEGENDARY:
+			return Color.ORANGE
+		RARITY.PERFECT:
+			return Color.RED
+		_:
+			return Color.WHITE

@@ -16,23 +16,18 @@ func _ready() -> void:
 	$VBoxContainer/HBoxContainer/AspectRatioContainer/Outline/ItemImage.texture = customer.item.image
 	# TODO seloff - account for multiple items/resources
 	var rarity_text: String
-	var color: Color
 	match customer.item.rarity:
 		Enums.RARITY.COMMON:
 			rarity_text = "a"
-			color = Color.WHITE
 		Enums.RARITY.UNCOMMON:
 			rarity_text = "an uncommon"
-			color = Color.SEA_GREEN
 		Enums.RARITY.RARE:
 			rarity_text = "a rare"
-			color = Color.DARK_BLUE
 		Enums.RARITY.LEGENDARY:
 			rarity_text = "a legendary"
-			color = Color.ORANGE
 		Enums.RARITY.PERFECT:
 			rarity_text = "a perfect"
-			color = Color.RED
+
 	$VBoxContainer/HBoxContainer/RichTextLabel.text = "[b]%s[/b] wants to %s %s [b]%s[/b] for %s" % [
 		customer.hero_class.name,
 		"buy" if customer.type == customer.CUSTOMER_TYPE.SELLING else "[b]sell[/b]",
@@ -40,7 +35,7 @@ func _ready() -> void:
 		customer.item.item_name,
 		customer.item.value,
 	]
-	$VBoxContainer/HBoxContainer/AspectRatioContainer/Outline.modulate = color
+	$VBoxContainer/HBoxContainer/AspectRatioContainer/Outline.modulate = Enums.get_rarity_color(customer.item.rarity)
 	$VBoxContainer/HBoxContainer/RichTextLabel.add_image(Enums.material_to_sprite[Enums.MATERIALS.GOLD], 16, 16)
 	customer.hero_class.guild.reputation_changed.connect(set_reputation)
 	set_reputation()
@@ -73,7 +68,7 @@ func sell():
 	if amounts[customer.item.rarity] > 0:
 		Inventory.remove_item(customer.item)
 		Materials.change_material_amount(Enums.MATERIALS.GOLD, customer.item.value)
-		customer.hero_class.guild.current_reputation_xp += 2 ^ customer.item.rarity
+		customer.hero_class.guild.current_reputation_xp += pow(2, customer.item.rarity)
 		queue_free()
 
 	else:
