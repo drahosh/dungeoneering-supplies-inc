@@ -12,3 +12,10 @@ static func stats_to_string(stats: Dictionary, full := false) -> String:
 			if full:
 				strings.append("%s: 0" % stat_name)
 	return "\n".join(strings)
+
+
+static func get_screen_top_margin(node: Node) -> int:
+	# For phones, returns size of margin on top needed to not be covered by notch on top of screen
+	var safe = DisplayServer.get_display_safe_area()
+	var scale_y = node.get_viewport().get_stretch_transform().y.y
+	return ceil(safe.position.y / scale_y)

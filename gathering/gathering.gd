@@ -1,10 +1,10 @@
-extends Control
+extends MarginContainer
 
 @onready var board: MyBoard = $VBoxContainer/HBoxContainer/Matching/Node2D/Match3Board
 @onready var board_container = $VBoxContainer/HBoxContainer/Matching
 @onready var timer = $VBoxContainer/TurnCounter/TurnLabel
 @onready var abilities = $VBoxContainer/Abilities/HBoxContainer
-@onready var exit_button = $VBoxContainer/HBoxContainer/RightMenu/Exit
+@onready var exit_button = $VBoxContainer/HBoxContainer/RightMenu/AspectRatioContainer/Exit
 @onready var warning_popup = $WarningPopup
 @onready var warning_exit = $WarningPopup/PanelContainer/VBoxContainer/HBoxContainer/Exit
 @onready var warning_stay = $WarningPopup/PanelContainer/VBoxContainer/HBoxContainer/Stay
@@ -23,6 +23,8 @@ func _ready():
 		ability.ability_deactivated.connect(board.deselect_ability)
 		ability.ability_activated.connect(board.select_ability)
 		abilities.add_child(ability)
+
+	self.add_theme_constant_override("margin_top", max(10, Utils.get_screen_top_margin(self)))
 
 
 func add_energy_and_turn(sequence: Match3Sequence):

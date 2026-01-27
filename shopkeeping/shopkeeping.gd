@@ -27,3 +27,4 @@ func _ready() -> void:
 	setup_button($Tabs/HeroesButton, $Heroes)
 	setup_button($Tabs/AdventureSellectButton, $AdventureSelect)
 	setup_button($Tabs/GatheringSelectButton, $GatherSelect)
+	$AndroidPadding.custom_minimum_size.y = Utils.get_screen_top_margin(self)

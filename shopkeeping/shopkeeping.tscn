@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bd4fs2bkgflle"]
+[gd_scene format=3 uid="uid://bd4fs2bkgflle"]
 
 [ext_resource type="Script" uid="uid://c5crh16wdfwss" path="res://shopkeeping/shopkeeping.gd" id="1_34se1"]
 [ext_resource type="PackedScene" uid="uid://crx5pctwjuhwa" path="res://shopkeeping/crafting/crafting.tscn" id="1_gelx1"]
@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://il54di45rkwo" path="res://res/ui/hero.png" id="11_2pe84"]
 [ext_resource type="Texture2D" uid="uid://b21go8oiog55b" path="res://res/ui/gather.png" id="13_7gdt0"]
 
-[node name="Shopkeeping" type="VBoxContainer"]
+[node name="Shopkeeping" type="VBoxContainer" unique_id=937368819]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -25,53 +25,56 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_34se1")
 
-[node name="ScrollContainer3" type="ScrollContainer" parent="."]
+[node name="AndroidPadding" type="Control" parent="." unique_id=73126304]
+layout_mode = 2
+
+[node name="ScrollContainer3" type="ScrollContainer" parent="." unique_id=168953192]
 layout_mode = 2
 vertical_scroll_mode = 0
 
-[node name="HSplitContainer" type="HBoxContainer" parent="ScrollContainer3"]
+[node name="HSplitContainer" type="HBoxContainer" parent="ScrollContainer3" unique_id=1339817137]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("2_wcgam")
 
-[node name="Shop" parent="." instance=ExtResource("2_3dbs0")]
+[node name="Shop" parent="." unique_id=66713106 instance=ExtResource("2_3dbs0")]
 layout_mode = 2
 
-[node name="Crafting" parent="." instance=ExtResource("1_gelx1")]
+[node name="Crafting" parent="." unique_id=1156520109 instance=ExtResource("1_gelx1")]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Town" parent="." instance=ExtResource("4_wcgam")]
+[node name="Town" parent="." unique_id=178782201 instance=ExtResource("4_wcgam")]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Heroes" parent="." instance=ExtResource("5_cass8")]
+[node name="Heroes" parent="." unique_id=138377887 instance=ExtResource("5_cass8")]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="AdventureSelect" parent="." instance=ExtResource("6_3vbii")]
+[node name="AdventureSelect" parent="." unique_id=1120064045 instance=ExtResource("6_3vbii")]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="GatherSelect" parent="." instance=ExtResource("7_gkete")]
+[node name="GatherSelect" parent="." unique_id=1214348280 instance=ExtResource("7_gkete")]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Padding" type="Control" parent="."]
+[node name="Padding" type="Control" parent="." unique_id=710884924]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 
-[node name="Tabs" type="HBoxContainer" parent="."]
+[node name="Tabs" type="HBoxContainer" parent="." unique_id=1654901942]
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="ShopButton" type="TextureButton" parent="Tabs"]
+[node name="ShopButton" type="TextureButton" parent="Tabs" unique_id=1408196611]
 layout_mode = 2
 size_flags_horizontal = 3
 disabled = true
@@ -80,7 +83,7 @@ texture_normal = ExtResource("3_hyqjf")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="CraftingButton" type="TextureButton" parent="Tabs"]
+[node name="CraftingButton" type="TextureButton" parent="Tabs" unique_id=1120763422]
 layout_mode = 2
 size_flags_horizontal = 3
 toggle_mode = true
@@ -88,14 +91,14 @@ texture_normal = ExtResource("2_16hl3")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="TownButton" type="TextureButton" parent="Tabs"]
+[node name="TownButton" type="TextureButton" parent="Tabs" unique_id=163360481]
 layout_mode = 2
 size_flags_horizontal = 3
 toggle_mode = true
 texture_normal = ExtResource("4_lkuf7")
 stretch_mode = 5
 
-[node name="HeroesButton" type="TextureButton" parent="Tabs"]
+[node name="HeroesButton" type="TextureButton" parent="Tabs" unique_id=122274034]
 layout_mode = 2
 size_flags_horizontal = 3
 toggle_mode = true
@@ -103,7 +106,7 @@ texture_normal = ExtResource("11_2pe84")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="AdventureSellectButton" type="TextureButton" parent="Tabs"]
+[node name="AdventureSellectButton" type="TextureButton" parent="Tabs" unique_id=1543606777]
 layout_mode = 2
 size_flags_horizontal = 3
 toggle_mode = true
@@ -111,7 +114,7 @@ texture_normal = ExtResource("5_1ue8y")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="GatheringSelectButton" type="TextureButton" parent="Tabs"]
+[node name="GatheringSelectButton" type="TextureButton" parent="Tabs" unique_id=526034327]
 layout_mode = 2
 size_flags_horizontal = 3
 toggle_mode = true
