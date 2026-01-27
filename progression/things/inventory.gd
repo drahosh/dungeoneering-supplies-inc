@@ -55,7 +55,12 @@ func get_item_amount_per_rarity(item_name: String) -> Dictionary:
 	return to_return
 
 
-func get_items_of_types_under_tier(types: Array, max_tier: int) -> Array:
+func get_items_of_types_under_tier(types: Array, max_tier: int, include_amounts = false) -> Array:
 	# returns Array of CraftedItems in inventory
-	var items = get_as_list(false)
-	return items.filter(func(item): return item.type in types and item.tier <= max_tier)
+	# as array [[item, amount],[item, amount]...]
+	# if include_amounts is false, returns just array of items
+	var items = get_as_list(include_amounts)
+	if include_amounts:
+		return items.filter(func(item): return item[0].type in types and item[0].tier <= max_tier)
+	else:
+		return items.filter(func(item): return item.type in types and item.tier <= max_tier)

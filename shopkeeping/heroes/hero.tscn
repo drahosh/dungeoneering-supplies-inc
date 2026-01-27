@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://co45dnow7uv2q"]
+[gd_scene load_steps=8 format=3 uid="uid://co45dnow7uv2q"]
 
 [ext_resource type="Theme" uid="uid://cq22p7ssoglja" path="res://utils/styles/panel_theme.tres" id="1_51mw8"]
 [ext_resource type="Script" uid="uid://cif48xpmm37vx" path="res://shopkeeping/heroes/hero_view.gd" id="2_1cel8"]
 [ext_resource type="Texture2D" uid="uid://il54di45rkwo" path="res://res/ui/hero.png" id="2_mbper"]
 [ext_resource type="Texture2D" uid="uid://cntdy2yqryiis" path="res://res/ui/locked.png" id="3_b6o18"]
 [ext_resource type="Texture2D" uid="uid://l1cts17b0hm8" path="res://res/ui/types/star.png" id="4_b6o18"]
+[ext_resource type="Texture2D" uid="uid://dqf1j355w1sxr" path="res://res/ui/expand.png" id="4_t8b1i"]
 [ext_resource type="Theme" uid="uid://coppugraj2k5s" path="res://utils/styles/outline.tres" id="5_64ugq"]
 
 [node name="Hero" type="PanelContainer"]
@@ -29,6 +30,22 @@ layout_mode = 2
 size_flags_horizontal = 2
 text = "Name"
 horizontal_alignment = 1
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer2/AspectRatioContainer"]
+layout_mode = 2
+theme = ExtResource("5_64ugq")
+
+[node name="Expand" type="TextureButton" parent="VBoxContainer/HBoxContainer2/AspectRatioContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+texture_normal = ExtResource("4_t8b1i")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="Level" type="Label" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
@@ -57,6 +74,33 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "aaa/bbb"
 horizontal_alignment = 1
+
+[node name="Extra Info" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Extra Info"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Other" type="RichTextLabel" parent="VBoxContainer/Extra Info/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/Extra Info"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Stats" type="RichTextLabel" parent="VBoxContainer/Extra Info/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2

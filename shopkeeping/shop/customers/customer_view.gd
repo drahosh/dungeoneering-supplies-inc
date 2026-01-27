@@ -18,7 +18,7 @@ func _ready() -> void:
 	var rarity_text: String
 	match customer.item.rarity:
 		Enums.RARITY.COMMON:
-			rarity_text = "a"
+			rarity_text = "an" if customer.item.item_name[0].to_upper() in ["A", "E", "I", "O", "U"] else "a"
 		Enums.RARITY.UNCOMMON:
 			rarity_text = "an uncommon"
 		Enums.RARITY.RARE:
@@ -30,7 +30,7 @@ func _ready() -> void:
 
 	$VBoxContainer/HBoxContainer/RichTextLabel.text = "[b]%s[/b] wants to %s %s [b]%s[/b] for %s" % [
 		customer.hero_class.name,
-		"buy" if customer.type == customer.CUSTOMER_TYPE.SELLING else "[b]sell[/b]",
+		"buy" if customer.type == customer.CUSTOMER_TYPE.BUYING else "[b]sell[/b]",
 		rarity_text,
 		customer.item.item_name,
 		customer.item.value,
@@ -68,6 +68,7 @@ func sell():
 	if amounts[customer.item.rarity] > 0:
 		Inventory.remove_item(customer.item)
 		Materials.change_material_amount(Enums.MATERIALS.GOLD, customer.item.value)
+		@warning_ignore("narrowing_conversion")
 		customer.hero_class.guild.current_reputation_xp += pow(2, customer.item.rarity)
 		queue_free()
 

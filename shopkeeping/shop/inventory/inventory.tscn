@@ -39,12 +39,13 @@ popup/item_3/text = "Rarity"
 popup/item_3/id = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+clip_contents = false
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/ScrollContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 6
 size_flags_vertical = 3
-columns = 6
+columns = 4

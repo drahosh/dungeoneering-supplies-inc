@@ -47,6 +47,7 @@ func unlock_guild(guild_name: String):
 func create_guilds() -> void:
 	guilds["Mercenaries"] = Guild.new(
 		"Mercenaries",
+		placeholder_image,
 		classes["Fighter"],
 		classes["Medic"],
 		[

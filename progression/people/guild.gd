@@ -9,7 +9,9 @@ class_name Guild
 # Guilds lose reputation when you refuse to sell to them or end day without seling to them
 
 var name: String
+var image: CompressedTexture2D
 signal reputation_changed
+
 var current_reputation_xp: int:
 	set(value):
 		if value < 0:
@@ -45,6 +47,7 @@ enum UPGRADE_TYPE {
 # Setup detault values at start of game, is supposed to be overridden
 func _init(
 		p_name: String,
+		p_image: CompressedTexture2D,
 		p_class1: HeroClass,
 		p_class2: HeroClass,
 		p_upgrades_per_rep_level: Array,
@@ -56,6 +59,7 @@ func _init(
 		p_max_tier := 1,
 ):
 	name = p_name
+	image = p_image
 	class1 = p_class1
 	class2 = p_class2
 	class1.guild = self

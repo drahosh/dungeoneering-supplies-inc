@@ -48,7 +48,7 @@ func level_up() -> void:
 
 func recalculate_stats() -> void:
 	# Sums up stats from class+level, items, and skills. Saves them to 'stats'
-	stats = hero_class.base_stats
+	stats = hero_class.base_stats.duplicate_deep()
 	# init unmentioned stats to 0
 	for stat in Enums.STATS.values():
 		if stat not in stats:
@@ -70,13 +70,14 @@ func _get_max_tier() -> int:
 
 
 func equip_item(item: CraftedItem, slot: int, from_inventory := true):
-	if item.tier > _get_max_tier() or item.type != hero_class.item_slots[slot]:
+	# Item can be null, in this case we just unequip existing item
+	if item and item.tier > _get_max_tier() or item.type != hero_class.item_slots[slot]:
 		print_debug("Trying to equip unequippable item")
 		return
 	if items[slot]:
 		Inventory.add_item(items[slot])
 	items[slot] = item
-	if from_inventory:
+	if item and from_inventory:
 		Inventory.remove_item(item)
 	recalculate_stats()
 	equipment_changed.emit()

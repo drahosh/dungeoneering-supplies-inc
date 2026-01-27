@@ -66,3 +66,10 @@ func item_from_recipe(rarity: Enums.RARITY = Enums.RARITY.COMMON) -> CraftedItem
 	# Used when crafting and loading (items are saved as recipe, rarity, and (TODO) other)
 	var item = CraftedItem.new(self, rarity)
 	return item
+
+
+func get_stats_for_rarity(rarity: Enums.RARITY):
+	var new_stats = { }
+	for stat in stats:
+		new_stats[stat] = int(round(stats[stat] * Enums.rarity_stat_mult[rarity]))
+	return new_stats

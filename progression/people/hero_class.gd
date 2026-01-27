@@ -3,7 +3,6 @@ extends RefCounted
 class_name HeroClass
 
 var guild: Guild # set by guild init
-
 var name: String
 var item_slots: Array # every hero has 4 item slots. Here each takes one Enums.ITEM_TYPE
 

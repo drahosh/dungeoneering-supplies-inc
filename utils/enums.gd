@@ -41,9 +41,9 @@ const rarity_price_mult = {
 const rarity_stat_mult = {
 	RARITY.COMMON: 1,
 	RARITY.UNCOMMON: 1.1,
-	RARITY.RARE: 1.2,
-	RARITY.LEGENDARY: 1.35,
-	RARITY.PERFECT: 1.5,
+	RARITY.RARE: 1.3,
+	RARITY.LEGENDARY: 1.6,
+	RARITY.PERFECT: 2,
 }
 const baseRarityUpChance = 0.1
 enum STATS {

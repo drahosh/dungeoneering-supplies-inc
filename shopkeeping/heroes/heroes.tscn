@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://70fushth34in"]
+[gd_scene load_steps=3 format=3 uid="uid://70fushth34in"]
 
 [ext_resource type="Script" uid="uid://c3h8trcgdoekl" path="res://shopkeeping/heroes/heroes_view.gd" id="1_mxg5e"]
+[ext_resource type="Texture2D" uid="uid://c6s2x1o70fp7j" path="res://res/ui/exit.png" id="2_7rvq8"]
 
 [node name="Heroes" type="PanelContainer"]
 anchors_preset = 15
@@ -56,3 +57,19 @@ layout_mode = 2
 size_flags_vertical = 8
 text = "Back
 "
+
+[node name="EquipMenu" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EquipMenu"]
+layout_mode = 2
+
+[node name="ItemContainer" type="Control" parent="EquipMenu/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Back" type="TextureButton" parent="EquipMenu/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("2_7rvq8")

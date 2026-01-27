@@ -2,6 +2,8 @@ extends PanelContainer
 
 class_name InventoryView
 var item_scene = preload("res://shopkeeping/shop/inventory/item.tscn")
+var get_inventory_function: Callable # used for filters, possibly will use it for secondary inventories
+var item_selected_signal: Signal
 
 
 func _ready() -> void:
@@ -13,7 +15,11 @@ func _ready() -> void:
 func show_inventory() -> void:
 	for child in $VBoxContainer/ScrollContainer/GridContainer.get_children():
 		child.free()
-	var itemList: Array = Inventory.get_as_list() # array of arrays [item, amount]
+	var item_list: Array
+	if get_inventory_function.is_null():
+		item_list = Inventory.get_as_list() # array of arrays [item, amount]
+	else:
+		item_list = get_inventory_function.call()
 	var sorting_function
 	match $VBoxContainer/HBoxContainer/MenuButton.selected:
 		0:
@@ -32,8 +38,8 @@ func show_inventory() -> void:
 					a[0].rarity == b[0].rarity and (
 						a[0].tier > b[0].tier
 						or a[0].tier == b[0].tier and a[0].item_name < b[0].item_name ) )
-	itemList.sort_custom(sorting_function)
-	for pair in itemList:
+	item_list.sort_custom(sorting_function)
+	for pair in item_list:
 		var child: ItemView = item_scene.instantiate()
-		child.initialize(pair[0], pair[1])
+		child.initialize(pair[0], pair[1], item_selected_signal)
 		$VBoxContainer/ScrollContainer/GridContainer.add_child(child)

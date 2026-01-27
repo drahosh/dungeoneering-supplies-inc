@@ -4,23 +4,30 @@ class_name HeroView
 var hero: Hero
 var hiring: bool
 const my_scene = preload("res://shopkeeping/heroes/hero.tscn")
+var equip_hero_signal: Signal
 
 
-static func get_new(p_hero: Hero, p_hiring := false) -> HeroView:
+static func get_new(p_hero: Hero, p_equip_hero_signal: Signal = Signal(), p_hiring := false) -> HeroView:
 	var hero_view: HeroView = my_scene.instantiate()
 	hero_view.hero = p_hero
 	hero_view.hiring = p_hiring
+	hero_view.equip_hero_signal = p_equip_hero_signal
 	return hero_view
 
 
 func _ready():
 	$VBoxContainer/HBoxContainer2/Name.text = hero.full_name()
-
+	$VBoxContainer/HBoxContainer/Image.texture = hero.hero_class.front_image
 	hero.xp_changed.connect(setup_xp)
 	setup_xp()
 	hero.equipment_changed.connect(setup_equipment)
 	setup_equipment()
+	setup_other()
+	setup_stats()
+	hero.equipment_changed.connect(setup_stats) # TODO also connect on passive ability change
 	# TODO abilities
+
+	$VBoxContainer/HBoxContainer2/AspectRatioContainer/PanelContainer/Expand.toggled.connect(toggle_extra_info)
 	if hiring:
 		$VBoxContainer/HiringRow.visible = true
 		# disable equipment buttons
@@ -33,6 +40,11 @@ func _ready():
 		$VBoxContainer/HiringRow/Hire.pressed.connect(hire_hero)
 		$VBoxContainer/HiringRow/RichTextLabel.text = "%s " % hero.hero_class.hiring_cost
 		$VBoxContainer/HiringRow/RichTextLabel.add_image(Enums.material_to_sprite[Enums.MATERIALS.GOLD], 16, 16)
+	else:
+		$VBoxContainer/HBoxContainer/VBoxContainer/Items/AspectRatioContainer/PanelContainer/Item.pressed.connect(func(): open_qquip_menu(0))
+		$VBoxContainer/HBoxContainer/VBoxContainer/Items/AspectRatioContainer2/PanelContainer/Item.pressed.connect(func(): open_qquip_menu(1))
+		$VBoxContainer/HBoxContainer/VBoxContainer/Items/AspectRatioContainer3/PanelContainer/Item.pressed.connect(func(): open_qquip_menu(2))
+		$VBoxContainer/HBoxContainer/VBoxContainer/Items/AspectRatioContainer4/PanelContainer/Item.pressed.connect(func(): open_qquip_menu(3))
 
 
 func setup_xp():
@@ -84,6 +96,27 @@ func toggle_hire_button():
 		$VBoxContainer/HiringRow/Hire.disabled = false
 	else:
 		$VBoxContainer/HiringRow/Hire.disabled = true
+
+
+func toggle_extra_info(toggle: bool):
+	$"VBoxContainer/Extra Info".visible = toggle
+
+
+func setup_stats():
+	$"VBoxContainer/Extra Info/VBoxContainer2/Stats".text = Utils.stats_to_string(hero.stats, true)
+
+
+func setup_other():
+	var textbox = $"VBoxContainer/Extra Info/VBoxContainer/Other"
+	textbox.text = "top-down image: "
+	textbox.add_image(hero.hero_class.top_down_image, 32, 32)
+	textbox.append_text("\nClass: %s\n" % hero.hero_class.name)
+	textbox.append_text("Guild: %s " % hero.hero_class.guild.name)
+	textbox.add_image(hero.hero_class.guild.image, 32, 32)
+
+
+func open_qquip_menu(slot: int):
+	equip_hero_signal.emit(hero, slot)
 
 
 func hire_hero():
