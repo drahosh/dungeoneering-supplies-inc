@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Match3PieceConfiguration" load_steps=5 format=3 uid="uid://cppa4pssj0wwd"]
+[gd_resource type="Resource" script_class="Match3PieceConfiguration" format=3 uid="uid://cppa4pssj0wwd"]
 
 [ext_resource type="PackedScene" uid="uid://fguk30e6ybq1" path="res://gathering/pieces/iron_ingot.tscn" id="1_7gv5e"]
 [ext_resource type="Script" uid="uid://d4hhq3xk71dh1" path="res://addons/ninetailsrabbit.match3_board/src/configurations/piece_configuration.gd" id="2_41c2j"]
