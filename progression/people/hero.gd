@@ -71,7 +71,7 @@ func _get_max_tier() -> int:
 
 func equip_item(item: CraftedItem, slot: int, from_inventory := true):
 	# Item can be null, in this case we just unequip existing item
-	if item and item.tier > _get_max_tier() or item.type != hero_class.item_slots[slot]:
+	if item and (item.tier > _get_max_tier() or item.type != hero_class.item_slots[slot]):
 		print_debug("Trying to equip unequippable item")
 		return
 	if items[slot]:
