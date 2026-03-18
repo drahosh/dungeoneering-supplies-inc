@@ -40,7 +40,7 @@ window/handheld/orientation=1
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dev/GDQuest_GDScript_formatter/plugin.cfg")
+enabled=PackedStringArray("res://addons/dev/GDQuest_GDScript_formatter/plugin.cfg", "res://addons/terrain_3d/plugin.cfg")
 
 [global_group]
 
