@@ -79,7 +79,6 @@ func create_classes() -> void:
 			Enums.STATS.ATK: 1,
 			Enums.STATS.HP: 10,
 			Enums.STATS.CRIT_CHANCE: 0.005,
-			Enums.STATS.EVASION: 0.5,
 		},
 		placeholder_image,
 		placeholder_image,
@@ -95,12 +94,10 @@ func create_classes() -> void:
 		{
 			Enums.STATS.ATK: 5,
 			Enums.STATS.HP: 50,
-			Enums.STATS.EVASION: 2,
 		},
 		{
 			Enums.STATS.ATK: 1,
 			Enums.STATS.HP: 5,
-			Enums.STATS.EVASION: 1,
 		},
 		placeholder_image,
 		placeholder_image,

@@ -7,10 +7,10 @@ static func stats_to_string(stats: Dictionary, full := false) -> String:
 	for stat_name in Enums.STATS:
 		var stat = Enums.STATS[stat_name]
 		if stat in stats:
-			strings.append("%s: %s" % [stat_name, stats[stat]])
+			strings.append("%s: %s" % [stat_name.replace('_', ' '), stats[stat]])
 		else:
 			if full:
-				strings.append("%s: 0" % stat_name)
+				strings.append("%s: 0" % stat_name.replace('_', ' '))
 	return "\n".join(strings)
 
 

@@ -48,9 +48,8 @@ const rarity_stat_mult = {
 const baseRarityUpChance = 0.1
 enum STATS {
 	ATK,
-	ARMOR, # 100/(100+ARMOR) is final damage multiplier
-	EVASION, # 100/(100+EVASION) is chance to get hit by ranged
-	MAGIC_RESIST, # 100/(100+MR) is chance to get hit by magic
+	ARMOR, # 100/(100+ARMOR) is multiplier for physical damage taken
+	MAGIC_RES, # 100/(100+MR) is multiplier for magic damage taken
 	HP,
 	ENERGY,
 	ENERGY_REGEN,
@@ -82,7 +81,12 @@ const type_to_sprite = {
 enum ATTACK_TYPE {
 	MELEE,
 	RANGED,
+	AREA,
+}
+enum DAMAGE_TYPE {
+	PHYS,
 	MAGIC,
+	TRUE,
 }
 
 const reputation_xp_per_level = [10, 30, 60, 100, 150, 210, 270, 340, 420, 510, 600]
